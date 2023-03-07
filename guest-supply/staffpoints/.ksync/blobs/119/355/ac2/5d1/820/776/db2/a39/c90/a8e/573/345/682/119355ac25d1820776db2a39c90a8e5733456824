@@ -1,0 +1,20 @@
+<recog-points-rules>
+  <ruleTypes>
+    <recog-points-rule>
+      <id>rule1</id>
+      <title>My rule1</title>
+      <fields>
+        <field>
+          <name>field1</name>
+          <required>true</required>
+          <aggregate>false</aggregate>
+          <indexed>false</indexed>
+          <fileUpload>false</fileUpload>
+          <title>field1</title>
+          <options/>
+        </field>
+      </fields>
+      <processFn>calculatePointsForRule1</processFn>
+    </recog-points-rule>
+  </ruleTypes>
+</recog-points-rules>

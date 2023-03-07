@@ -1,0 +1,15 @@
+<integration>
+  <endpoint id="inbound-sales" type="http" address="/inbound\/sales.csv" pipelinePath="/integration/sales.xml" direction="in" enabled="true"/>
+  <endpoint id="medart-standard-sales" type="http" address="/inbound\/sales.csv" pipelinePath="/integration/sales.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-sales-dataseries" type="http" address="/inbound\/ao-sales.csv" pipelinePath="/integration/ao-sales.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-300-hr-kits-sold-divide-4" type="http" address="/inbound\/1fe12b.csv" pipelinePath="/integration/ao-medart-300-hr-kits-sold-divide-4.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-koh-loyal-adv-oil-mnt-kits-regular" type="http" address="/inbound\/1fe12f.csv" pipelinePath="/integration/ao-medart-koh-loyal-adv-oil-mnt-kits-regular.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-koh-loyal-adv-oil-mnt-on-pso" type="http" address="/inbound\/1fe129.csv" pipelinePath="/integration/ao-medart-koh-loyal-adv-oil-mnt-on-pso.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-koh-loyal-oil-divide-by-84" type="http" address="/inbound\/1fe130.csv" pipelinePath="/integration/ao-medart-koh-loyal-oil-divide-by-84.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-koh-loyal-pso-all-others" type="http" address="/inbound\/1fe131.csv" pipelinePath="/integration/ao-medart-koh-loyal-pso-all-others.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-medart-koh-loyal-reg-pts-eng" type="http" address="/inbound\/1fe171.csv" pipelinePath="/integration/ao-medart-koh-loyal-reg-pts-eng.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-pes-koh-dealer-sales" type="http" address="/inbound\/pes-koh-dealer-sales.csv" pipelinePath="/integration/ao-pes-koh-dealer-sales.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-gardner-sample-file" type="http" address="/inbound\/gardner-sample-file.csv" pipelinePath="/integration/ao-gardner-sample-file.xml" direction="in" enabled="true"/>
+  <endpoint id="ao-warranty-koh-sample-file" type="http" address="/inbound\/ao-warranty-koh-sample-file.csv" pipelinePath="/integration/ao-warranty-koh-sample-file.xml" direction="in" enabled="true"/>
+  <endpoint id="Warranty Registrations" type="http" address="/inbound\/warranty-registrations.csv" pipelinePath="/integration/warranty-registrations.xml" direction="in" enabled="true"/>
+</integration>

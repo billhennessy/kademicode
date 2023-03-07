@@ -1,0 +1,86 @@
+/* awards a configurable bonus for orders placed between specified days of the month */
+function doProcessWeek(record, ruleParams){
+    log.info("doProcessWeek 1: ID={} saleDate={}", record.id, record.periodFrom)
+    var start = ruleParams.start;
+    var end = ruleParams.end;
+    var points = ruleParams.points;
+    var minOrder = ruleParams.minOrder;
+    var dayOfMonth = formatter.getDayOfMonth(record.periodFrom)
+    log.info("dayOfMonth: {}", dayOfMonth)
+    var bonus = 0;
+    if((dayOfMonth >= start && dayOfMonth <= end) && record.amount >= minOrder){
+        bonus = points;
+    }
+        
+    return bonus;
+}
+
+function isIncludedWeek(record, ruleParams){
+    return true;
+}
+
+
+/* applies a multiplier to items ordered online above a minimum amount */
+function doProcessOnline (record, ruleParams ) {
+    log.info("isIncludedOnline 1: ID={} orderNumber={} amount={}", record.id, record.field1, record.amount)
+    var minAmount = ruleParams.minAmount;
+    var amount = record.amount;
+    var recordSource = record.field1;
+    var ruleSource = ruleParams.sourceCode;
+   
+    log.info("isIncludedOnline 2: recordSource={} ruleSource={}", recordSource, ruleSource)
+    var bonus = 0;
+    
+    if(amount >= minAmount && recordSource === ruleSource ){
+        bonus = ruleParams.multiplier * amount;
+    }
+    return bonus;
+}
+
+
+function isIncludedOnline(record, ruleParams){
+    
+
+    return true; 
+}
+
+/**
+ * Bonus points for large orders
+ * 
+ */
+ 
+function doProcessSize (record, ruleParams ) {
+    
+    var amount = formatter.toDouble(record.amount);
+    var minAmount = formatter.toInteger(ruleParams.minAmount);
+    var bonus = formatter.toInteger(ruleParams.bonusAmount);
+    
+    log.info("doProcessSize: amount={} minAmount={}",amount ,minAmount )
+ 
+     if(amount >= minAmount) {
+        return bonus;
+    }
+    return 0;
+   
+}
+
+
+function isIncludedProcessSize(record, ruleParams){
+    
+ 
+    return true; 
+}
+
+
+function doProcessGroup(record, ruleParams) {
+    return 1;
+}
+
+function isIncludedGroup(record, ruleParams) {
+    
+    var thisProfile = services.userManager.findByName(record.salesBy.entityName);
+    var mems = services.userManager.membershipList(thisProfile);
+    log.info("doIsIncludedGroup: mems={}", mems);
+
+    return mems.containsGroup(ruleParams.group);
+}

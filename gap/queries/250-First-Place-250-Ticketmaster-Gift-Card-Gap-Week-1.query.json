@@ -1,0 +1,50 @@
+{
+  "query": {
+    "stored_fields": [
+      "customerFirstName",
+      "customerSurName",
+      "customerMembershipOrgTitles"
+    ],
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "productName": "250-First-Place-250-Ticketmaster-Gift-Card-Gap-Week-1"
+            }
+          },
+          {
+            "range": {
+              "orderedDate": {
+                "gt": "2022-06-21"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "productorders"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"customerFirstName\",\"customerSurName\",\"customerMembershipOrgTitles\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"productName\":\"250-First-Place-250-Ticketmaster-Gift-Card-Gap-Week-1\"}},{\"range\":{\"orderedDate\":{\"gt\":\"2022-06-21\"}}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"productName\":\"250-First-Place-250-Ticketmaster-Gift-Card-Gap-Week-1\"}},{\"range\":{\"orderedDate\":{\"gt\":\"2022-06-21\"}}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"productName\",\"field\":\"productName\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"250-First-Place-250-Ticketmaster-Gift-Card-Gap-Week-1\"},{\"id\":\"orderedDate\",\"field\":\"orderedDate\",\"type\":\"date\",\"input\":\"text\",\"operator\":\"greater\",\"value\":\"2022-06-21\"}]}",
+    "filters": [],
+    "fields": [
+      "customerFirstName",
+      "customerSurName",
+      "customerMembershipOrgTitles"
+    ],
+    "aggregations": [],
+    "order": ""
+  }
+}

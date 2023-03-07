@@ -1,0 +1,68 @@
+/**
+ * Find sales record by invoiceNumber, amount and userName
+ */
+function findSalesRecord(dataSeries, transactionId, amount, userName) {
+    var fieldOrdinal = dataSeries.findFieldOrdinal('transaction-id');
+
+    var crit = services.criteriaBuilders.get('salesDataRecord')
+        .eq('series', dataSeries)
+        .eq('field' + fieldOrdinal, transactionId)
+        .eq('amount', formatter.toBigDecimal(amount));
+
+    var results = crit.execute(100);
+
+    if (formatter.isNotEmpty(results)) {
+        for (var i = 0; i < results.size(); i++) {
+            var record = results.get(i);
+
+            if (record.salesBy.entityName === userName) {
+                log.info("findSalesRecord: transactionId={} records={} Found={}", transactionId, results, record);
+                return record
+            }
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Reset points allocations from record
+ */
+function resetSalesRecordPointsAllocation(record) {
+    var pointsList = record.findPointsAllocation();
+    log.info("resetSalesRecordPointsAllocation found points list: {}", pointsList);
+    if (formatter.isNotEmpty(pointsList)) {
+        pointsList.forEach(function (pa) {
+            log.info("resetSalesRecordPointsAllocation reset ok for point: {}", pa);
+           // pa.deleteAndResetPoints();
+           services.dataSeriesManager.resetPointsAllocation(pa, false);
+        });
+    }
+}
+
+/**
+ * Delete sales record
+ */
+function deleteSaleRecord(record) {
+    services.criteriaBuilders.getBuilder("salesDataRecord").delete(record);
+    log.info("deleteSaleRecord: {}", record);
+}
+
+/**
+ * Parse Date
+ */
+function parseDate(s) {
+    s = formatter.cleanString(s);
+    if (formatter.isNotNull(s)) {
+        var tz = null;
+        var rf = securityManager.currentRootFolder;
+
+        if (formatter.isNotNull(rf)) {
+            tz = rf.organisation.timezone;
+        }
+
+        return formatter.parseDateWithPattern(s, 'MM-dd-yyyy', tz);
+    }
+    return null;
+}
+

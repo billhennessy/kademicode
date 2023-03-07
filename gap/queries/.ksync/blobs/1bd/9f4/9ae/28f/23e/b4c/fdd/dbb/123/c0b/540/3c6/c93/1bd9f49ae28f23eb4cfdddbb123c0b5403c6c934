@@ -1,0 +1,95 @@
+{
+  "query": {
+    "stored_fields": [
+      "firstName",
+      "surName",
+      "userId",
+      "organisation",
+      "memberships.createdDate",
+      "groupNames",
+      "email"
+    ],
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "_type": "profile"
+            }
+          },
+          {
+            "range": {
+              "memberships.createdDate": {
+                "gte": "$startDate",
+                "lte": "$endDate"
+              }
+            }
+          },
+          {
+            "terms": {
+              "groupNames": [
+                "confirmed"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "aggs": {
+      "DATE_HISTOGRAM_memberships.createdDate": {
+        "date_histogram": {
+          "field": "memberships.createdDate",
+          "interval": "day"
+        }
+      },
+      "COUNT_userId": {
+        "value_count": {
+          "field": "userId"
+        }
+      }
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "profile"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [
+      {
+        "aggName": "DATE_HISTOGRAM_memberships.createdDate",
+        "aggType": "DATE_HISTOGRAM",
+        "aggField": "memberships.createdDate",
+        "aggInterval": "day"
+      },
+      {
+        "aggName": "COUNT_userId",
+        "aggType": "COUNT",
+        "aggField": "userId",
+        "aggSize": "0"
+      }
+    ],
+    "queryToRun": "{\"stored_fields\":[\"firstName\",\"surName\",\"userId\",\"organisation\",\"memberships.createdDate\",\"groupNames\",\"email\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"_type\":\"profile\"}},{\"range\":{\"memberships.createdDate\":{\"gte\":\"$startDate\",\"lte\":\"$endDate\"}}},{\"terms\":{\"groupNames\":[\"confirmed\"]}}]}}, \"aggs\": {\"DATE_HISTOGRAM_memberships.createdDate\" : {\"date_histogram\" : {\"field\": \"memberships.createdDate\", \"interval\": \"day\"}},\"COUNT_userId\" : {\"value_count\" : {\"field\": \"userId\"}}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"_type\":\"profile\"}},{\"range\":{\"memberships.createdDate\":{\"gte\":\"$startDate\",\"lte\":\"$endDate\"}}},{\"terms\":{\"groupNames\":[\"confirmed\"]}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"_type\",\"field\":\"_type\",\"type\":\"string\",\"input\":\"select\",\"operator\":\"equal\",\"value\":\"profile\"},{\"id\":\"memberships.createdDate\",\"field\":\"memberships.createdDate\",\"type\":\"date\",\"input\":\"text\",\"operator\":\"between\",\"value\":[\"$startDate\",\"$endDate\"]},{\"id\":\"groupNames\",\"field\":\"groupNames\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"in\",\"value\":\"confirmed\"}]}",
+    "filters": [],
+    "fields": [
+      "firstName",
+      "surName",
+      "userId",
+      "organisation",
+      "memberships.createdDate",
+      "groupNames",
+      "email"
+    ],
+    "aggregations": [
+      "\"DATE_HISTOGRAM_memberships.createdDate\" : {\"date_histogram\" : {\"field\": \"memberships.createdDate\", \"interval\": \"day\"}}",
+      "\"COUNT_userId\" : {\"value_count\" : {\"field\": \"userId\"}}"
+    ],
+    "order": ""
+  }
+}

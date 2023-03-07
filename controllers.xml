@@ -1,0 +1,15 @@
+<controllers>
+  <metrics>
+    <metric id="test-metric-1" decimals="0">
+      <title>Test Metric 1</title>
+      <metricTypeId>sales-by-pas</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <params>
+        <entry>
+          <string>pointsAllocSource</string>
+          <string>sweepstakes-points</string>
+        </entry>
+      </params>
+    </metric>
+  </metrics>
+</controllers>

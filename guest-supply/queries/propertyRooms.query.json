@@ -1,0 +1,590 @@
+{
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "org"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [
+      {
+        "aggName": "SUM_points.property-points",
+        "aggType": "SUM",
+        "aggField": "points.property-points",
+        "aggSize": "0"
+      }
+    ],
+    "queryToRun": "{\"stored_fields\":[\"orgId\",\"orgTitle\",\"rooms\",\"brandid\"],\"query\":{\"bool\":{\"must\":[{\"terms\":{\"orgTypes\":[\"property\"]}},{\"exists\":{\"field\":\"rooms\"}}]}}, \"aggs\": {\"SUM_points.property-points\" : {\"sum\" : {\"field\": \"points.property-points\"}}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"terms\":{\"orgTypes\":[\"property\"]}},{\"exists\":{\"field\":\"rooms\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"orgTypes\",\"field\":\"orgTypes\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"in\",\"value\":\"property\"},{\"id\":\"rooms\",\"field\":\"rooms\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"is_not_null\",\"value\":null}]}",
+    "filters": [
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "address",
+        "label": "address",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addressLine2",
+        "label": "addressLine2",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addressState",
+        "label": "addressState",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brand-name",
+        "label": "brand-name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brandid",
+        "label": "brandid",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "chain-independent",
+        "label": "chain-independent",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "chain-or-independent",
+        "label": "chain-or-independent",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "city",
+        "label": "city",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "country",
+        "label": "country",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "dc",
+        "label": "dc",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "directParentOrgIds",
+        "label": "directParentOrgIds",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "dsm",
+        "label": "dsm",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "email",
+        "label": "email",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "entityId",
+        "label": "entityId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "groupid",
+        "label": "groupid",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "hotel-brand",
+        "label": "hotel-brand",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "leadAssignedToProfileIds",
+        "label": "leadAssignedToProfileIds",
+        "type": "string"
+      },
+      {
+        "indexType": "geo_point",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location",
+        "label": "location",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgId",
+        "label": "orgId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgIdSearch",
+        "label": "orgIdSearch",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgTitle",
+        "label": "orgTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgTypes",
+        "label": "orgTypes",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgTypesSearch",
+        "label": "orgTypesSearch",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentId",
+        "label": "parentId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentOnlyOrgIds",
+        "label": "parentOnlyOrgIds",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentOrgId",
+        "label": "parentOrgId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentOrgIds",
+        "label": "parentOrgIds",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentPath",
+        "label": "parentPath",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "phone",
+        "label": "phone",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "points.property-points",
+        "label": "points.property-points",
+        "type": "integer"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "points.tier-qualifying",
+        "label": "points.tier-qualifying",
+        "type": "integer"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "postcode",
+        "label": "postcode",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recog-achievements",
+        "label": "recog-achievements",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recog-highest-levels",
+        "label": "recog-highest-levels",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "rooms",
+        "label": "rooms",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "rvp",
+        "label": "rvp",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "segment",
+        "label": "segment",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "title",
+        "label": "title",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "vendor-location-no",
+        "label": "vendor-location-no",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      "orgId",
+      "orgTitle",
+      "rooms",
+      "brandid"
+    ],
+    "aggregations": [
+      "\"SUM_points.property-points\" : {\"sum\" : {\"field\": \"points.property-points\"}}"
+    ]
+  }
+}

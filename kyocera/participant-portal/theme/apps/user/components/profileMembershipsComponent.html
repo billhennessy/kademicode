@@ -1,0 +1,188 @@
+<div class="well well-memberships">
+
+    <h4>$formatter.firstNotNull($panelTitle, "Memberships")</h4>
+
+    #if( $formatter.isNotEmpty($panelDesc) )
+    <p class="">$panelDesc</p>
+    <hr/>
+    #end
+
+    #set ($om = $services.organisationManager)
+    #set( $thisProfile = $profile )
+    #set( $thisProfile = $page.thisProfile )
+
+    #set ($primaryMemberships = $formatter.newArrayList() )
+    #set($userInSettingGroup = false)
+    #if( $formatter.isNotEmpty($group))
+        #set($userInSettingGroup = $userResource.isInGroup($group))
+        #if($userInSettingGroup)
+            #set ($primaryMemberships = $services.userManager.membershipList($thisProfile).filterByGroup($group))
+        #end
+    #else
+        #set ($primaryMemberships =  $services.userManager.membershipList($thisProfile) )
+    #end
+
+    <ul class='list-unstyled memberships' id="profile-memberships">
+
+        #foreach($membership in $primaryMemberships)
+            #set($curGroup = $membership.group())
+            #set($isShow = $curGroup.isOpenGroup() && $om.hasGroupInWebsite($rootFolder.website, $curGroup))
+            #if ($isShow)
+                <li>
+                    <div>
+                        <span class="trans-lookup" data-transcode="member-of-the">Member of the</span> <b class="trans-lookup" data-transcode="group-${membership.groupName}">$membership.groupTitle</b> <span class="trans-lookup" data-transcode="group">group</span>
+                        #if( $membership.org.isAdminDomain() )
+                        #else
+                        <span class="trans-lookup" data-transcode="in">in</span>
+                        <b>$membership.org.title</b>
+                        #end
+                    </div>
+                    #if( $formatter.toBool($allowChange) || ($primaryMemberships.size() > 1 && $formatter.toBool($allowDelete)) )
+                    <div class="btn-group btn-group-flex">
+                    #if( $formatter.toBool($allowChange) )
+                    <a class="btn btn-default btn-sm" data-toggle="modal" href="#profile-change-membership" data-membership-id='$membership.id'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    #end
+
+                    #if ($primaryMemberships.size() > 1 && $formatter.toBool($allowDelete) )
+                    <a title='Remove this membership' href='$membership.id' class='membership-remove btn btn-danger btn-sm'>
+                        <i class="fa fa-times"></i>
+                    </a>
+                    #end
+                    </div>
+                    #end
+
+                    <div class="clearfix"></div>
+                </li>
+            #end
+        #end
+    </ul>
+
+    <br/>
+
+    #if( $formatter.toBool($allowAdd) )
+	    #if( $formatter.isNotEmpty($group) )
+	    	#set( $groupOb = $services.userManager.findGroupByName($group) )
+		    #if(!$groupOb.closedGroup && $groupOb.regoOrgType && $om.hasGroupInWebsite($rootFolder.website, $curGroup) )
+			    <button class="btn btn-default" data-toggle="modal" data-target="#profile-add-org-$groupOb.name">
+			        <i class="fa fa-plus"></i>
+			        <span class="trans-lookup" data-transcode="profile-memberships-group-join">
+			            $formatter.firstNotNull($addText,"<span class='trans-lookup' data-transcode='join-another-organisation'>Join another organisation</span>")
+			        </span>
+			    </button>
+                #modalAddOrg($groupOb)
+		    #end
+	    #end
+    #end
+</div>
+
+
+#set( $groups = $primaryMemberships.toGroupsList() )
+#foreach( $group in $groups )
+    #modalAddOrg($group)
+#end
+
+    
+
+<div id="profileMembershipApplications">
+    #set( $gmas = $services.userManager.findPendingMembershipApplications($thisProfile) )
+    #if( $gmas.isEmpty() )
+    #else
+    <div class="well">
+
+        <h4 class="trans-lookup" data-transcode="membership-applications">Membership applications</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="trans-lookup" data-transcode="membership-applications-list-group">Group</th>
+                    <th class="trans-lookup" data-transcode="membership-applications-list-organisation">Organisation</th>
+                    <th class="trans-lookup" data-transcode="membership-applications-list-status">Status</th>
+                    <th class="trans-lookup" data-transcode="membership-applications-list-submitted-date">Submitted date  </th>
+                </tr>
+            </thead>
+            #foreach( $gma in $gmas )
+            <tr>
+                <td>$gma.groupEntity.title</td>
+                <td>$!gma.withinOrg.formattedName</td>
+                <td>
+                    #if( $gma.applicationResultState )
+                    $gma.applicationResultState
+                    #else
+                    <span class="trans-lookup" data-transcode="Pending">Pending</span>
+                    #end
+                </td>
+                <td>$formatter.formatDate($gma.createdDate)</td>
+            </tr>
+            #end
+        </table>
+    </div>
+    #end
+</div>
+
+
+<div id="profile-change-membership" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        #set( $orgType = "organisation" )
+        #set( $orgType = $group.regoOrgType.displayName )
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+                <h4 class="modal-title"><span class="trans-lookup" data-transcode="Change-membership">Change membership</span></h4>
+            </div>
+            <form method="POST" action="/profile-memberships" class="create-membership">
+                <input type="hidden" name="membershipId" value="" />
+                <input type="hidden" name="orgId" value="" />
+                <input type="hidden" name="profileId" value="$thisProfile.id" />
+
+                <div class="modal-body modal-overflow">
+                    <div class="clearfix">
+                        <p><span class="trans-lookup" data-transcode="please-enter-the">Please enter the</span> $orgType <span class="trans-lookup" data-transcode="you-want-to-join">you want to join</span></p>
+                        <input class="required form-control trans-lookup" type="text" data-txt-min-length="$!txtMinLength" name="orgTitleSearch" autocomplete="nope" placeholder="Choose your $orgType" />
+                        <br>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default trans-lookup" data-dismiss="modal" data-transcode="Close" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary btn-save trans-lookup" data-transcode="Save-changes" type="submit"><i class="fa fa-save"></i> Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+#macro(modalAddOrg $group)
+    #if( !$group.closedGroup )
+        <div id="profile-add-org-$group.name" class="modal fade profile-add-membership" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                #set( $orgType = "organisation" )
+                #set( $orgType = $group.regoOrgType.displayName )
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+                        <h4 class="modal-title"><span class="trans-lookup" data-transcode="New">New</span> <span class="trans-lookup" data-transcode="group-${group.name}">$group.title</span> <span class="trans-lookup" data-transcode="membership">membership</span></h4>
+                    </div>
+                    <form method="POST" action="/profile-memberships" class="create-membership">
+                        <input type="hidden" name="groupName" value="$group.name" />
+                        <input type="hidden" name="orgId" value="" />
+                        <input type="hidden" name="profileId" value="$thisProfile.id" />
+                        <div class="modal-body modal-overflow"  id="changeOrgModalBody">
+                            <div class="clearfix">
+                                <p><span class="trans-lookup" data-transcode="please-enter-the">Please enter the</span> $orgType <span class="trans-lookup" data-transcode="you-want-to-join">you want to join</span></p>
+                                <input class="required form-control trans-lookup" type="text" name="orgTitleSearch" data-txt-min-length="$!txtMinLength" autocomplete="nope" placeholder="Choose your $orgType" />
+                                <br>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default trans-lookup" data-dismiss="modal" data-transcode="Close" aria-hidden="true">Close</button>
+                            <button class="btn btn-primary btn-save trans-lookup" data-transcode="Save-changes" type="submit"><i class="fa fa-save"></i> Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    #end
+#end

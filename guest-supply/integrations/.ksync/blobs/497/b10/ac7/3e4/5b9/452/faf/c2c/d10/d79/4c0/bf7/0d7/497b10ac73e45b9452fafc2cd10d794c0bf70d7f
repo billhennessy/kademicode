@@ -1,0 +1,140 @@
+load('/integration/common.js');
+
+function prepare() {
+  pipeline.addInfo('PREPARE', 'Guest Supply Order Detail');
+  var defaultDataSeriesName = defaultDataSeries('details');
+  pipeline.addInfo('PREPARE', 'using dataseries = ' + defaultDataSeriesName);
+  pipeline.attributes.dataSeries = services.dataSeriesManager.dataSeries(defaultDataSeriesName);  
+}
+
+function finishImport() {
+  pipeline.addInfo('FINISHED', 'todo ... add info here');
+}
+
+/**
+ * Find sales record by orderNumber, amount, and attributedTo
+ */
+ function getOrderRecord(dataSeries, orderNumber) {
+  var fieldOrdinal = dataSeries.findFieldOrdinal('orderNumber');
+
+  var crit = services.criteriaBuilders.get('salesDataRecord')
+      .eq('series', dataSeries)
+      .eq('field' + fieldOrdinal, orderNumber);
+
+  var results = crit.execute(100);
+  
+  if (formatter.isNotEmpty(results)) {
+      for (var i = 0; i < results.size(); i++) {
+          var record = results.get(i);
+           log.info("findSalesRecord: orderNumber={} records={} Found={}", orderNumber, results, record);
+          return record
+
+      }
+  }
+
+  return null;
+}
+
+/**
+ * Find sales record by orderNumber and orderLine
+ */
+ function findDetailRecord(dataSeries, orderNumber, orderLine) {
+  var fieldOrdinal1 = dataSeries.findFieldOrdinal('orderNumber');
+  var fieldOrdinal2 = dataSeries.findFieldOrdinal('orderLine');
+
+  var crit = services.criteriaBuilders.get('salesDataRecord')
+      .eq('series', dataSeries)
+      .eq('field' + fieldOrdinal1, orderNumber)
+      .eq('field' + fieldOrdinal2, orderLine);
+
+  var results = crit.execute(100);
+
+  if (formatter.isNotEmpty(results)) {
+      for (var i = 0; i < results.size(); i++) {
+          var record = results.get(i);
+
+          if (record.salesBy.entityName === attributedTo) {
+              log.info("findDetailRecord: orderNumber={} records={} Found={}", orderNumber, results, record);
+              return record
+          }
+      }
+  }
+
+  return null;
+}
+
+function processRow(BusinessUnit,InvoiceNo,AccountNo,ProductID, QtyOrder , QtySold , Price , Sales , SalesmanGP$ , ActualGP$ ,BackOrder,DropShip, Discount , Misc , Rebate , Restock ,OrderNo,OrderLine, Surcharge ) {
+ 
+  var dataSeries = services.dataSeriesManager.dataSeries(defaultDataSeries('details'));
+  var headerDataSeries = services.dataSeriesManager.dataSeries(defaultDataSeries('headers'));
+  var dm1 = services.dateManagerV1; 
+
+   /** 
+  * Clean up dashes 
+  */
+  var sales = isNaN(Sales) ? 0.00 : formatter.toDecimal(Sales, 2);
+  var amount = formatter.toDecimal(sales, 2); //Freight charges don't count
+  var productSku = formatter.toString(ProductID);
+  /* Extra Fields */
+  var orderNumber =formatter.toString(OrderNo);
+  var quantitySold = formatter.toInteger(isNaN(QtyOrder ? 0.00 : QtyOrder));
+  var attributedTo = '';
+  var periodFrom = '';
+
+// Look up the order header record
+  var headerRecord = getOrderRecord(headerDataSeries, orderNumber); 
+  if(formatter.isNotEmpty(headerRecord)){
+       attributedTo = formatter.toString(headerRecord.salesBy); 
+       periodFrom = dm1.parseDate(headerRecord.periodFrom);
+  }
+  else {
+      return;
+  }
+ // Find an existing Record
+    // var salesRecord = findSalesRecord(dataSeries, orderNumber, amount, attributedTo);
+
+    // if (salesRecord) {
+    //     // Found record, so we reset points allocation
+    //     resetSalesRecordPointsAllocation(salesRecord);
+
+    //     // Then delete record
+    //     deleteSaleRecord(salesRecord);
+    // }
+    
+if( amount === 0){
+    return;
+  }
+
+   pipeline.addInfo('PREPARE',  ' ' + attributedTo + ' ' + amount + ' ' + orderNumber);
+
+  // // Create a new record
+
+  var attributedToProfile = services.userManager.findOrg(formatter.toString(attributedTo));
+
+  if (formatter.isNull(attributedToProfile)) {
+       pipeline.addFailure('PROFILE-NOT-FOUND', 'Unable to locate a profile with ShipTo: ' + attributedTo);
+       return;
+  }
+
+  var dm = services.dataSeriesManager;
+  var db = dm.newDataPoint();
+  
+  db.series       = pipeline.attributes.dataSeries;
+  db.amount       = formatter.toDecimal(amount, 2);
+  db.periodFrom   = dm1.parseDate(periodFrom);
+  db.attributedTo = attributedToProfile;
+  db.productSku   = formatter.toString(productSku);
+  //db.productSku   = formatter.toString(productSku);
+
+  var fields = formatter.newMap();
+
+  fields.put('orderNumber', formatter.toString(orderNumber));
+  fields.put('source', formatter.toString(source));
+  fields.put('qtySold', formatter.toInteger(quantitySold));
+   db.fields = fields;
+  
+  var newRecord = dm.insertDataPoint(db);
+
+  pipeline.addInfo('CREATED', 'Create a new order detail record with id: ' + newRecord.id + ', amount: ' + amount + ', property ID ' + attributedTo);  
+  
+}

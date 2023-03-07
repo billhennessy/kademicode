@@ -1,0 +1,178 @@
+#set($contactPage = $rootFolder.find("/contactus"))
+
+#set($groupClass = '')
+#set($fieldClass = 'col-md-9')
+
+#if($showTitle == true)
+    #set($groupClass = '')
+    #set($fieldClass = 'col-md-9')
+#else
+    #set($groupClass = 'group-no-label')
+    #set($fieldClass = 'col-md-offset-3 col-md-9')
+#end
+
+#set($attachments = $formatter.toBool($attachments, false) )
+#set($messageRequired = $formatter.toBool($messageRequired, false) )
+#set($messageRicheditor = $formatter.toBool($messageRicheditor, false) )
+
+#set ($hiddenFields = $formatter.fromCsv($hiddenFields))
+
+<div class="contactFormComponent">
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="/contactus" method="POST" class="contactus form-horizontal" role="form" data-redirect-url="$!redirectUrl" $formatter.ifTrue($attachments,'enctype="multipart/form-data"','')>
+                #if ($path && $path != "")
+                <input type="hidden" name="contactForm" value="$!path">
+                #end
+
+                #if ($hiddenFields && $hiddenFields.size() > 0)
+                    #set ($fc = $formatter.newFormContext())
+                    #foreach ($hf in $hiddenFields)
+                        <input type="hidden" name="$hf" value="$!formatter.htmlAttEncode($fc.cleanedParam($hf))">
+                    #end
+                #end
+
+                #if( $formatter.toBool($firstName, true) )
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label trans-lookup" for="firstName">First name</label>
+                    <div class="$fieldClass">
+                        <input type="text" name="firstName" id="firstName" class="required form-control trans-lookup" placeholder="Enter your first name" value="$!user.firstName" />
+                    </div>
+                </div>
+                #end
+                #if ($formatter.toBool($surName, true))
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label  trans-lookup" for="surName">Last name</label>
+                    <div class="$fieldClass">
+                        <input type="text" name="surName" id="surName" class="form-control trans-lookup" placeholder="Enter your Last name" value="$!user.surName" />
+                    </div>
+                </div>
+                #end
+                #if( $formatter.toBool($email, true) )
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label trans-lookup" for="email">Email</label>
+                    <div class="$fieldClass">
+                        <input type="text" name="email" id="email" class="required form-control trans-lookup" placeholder="Enter your email address" value="$!user.email" />
+                    </div>
+                </div>
+                #end
+                #if ($company == "true")
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label trans-lookup" for="company">Company</label>
+                    <div class="$fieldClass">
+                        <input type="text" name="company" id="company" class="form-control trans-lookup" placeholder="Enter your company name" />
+                    </div>
+                </div>
+                #end
+                #if ($phone == "true")
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label text-right-sm trans-lookup" for="phone">Phone</label>
+                    <div class="$fieldClass">
+                        <input type="text" name="phone" id="phone" class="form-control trans-lookup" placeholder="Enter your best contact number" value="$!user.phone" />
+                    </div>
+                </div>
+                #end
+
+                #if( $formatter.isNotEmpty($fieldsFunnel) )
+                    #set( $fj = $services.funnelManager.getFunnel($fieldsFunnel) )
+                    #set( $fc = $formatter.newFormContext() )
+                    #foreach( $field in $fj.extraFields )
+                    <div class="form-group $groupClass">
+                        <label class="col-md-3 control-label text-right-sm trans-lookup" for="$field.name">$field.title</label>
+                        <div class="$fieldClass">
+                            $field.html($fc.cleanedParam($field.name) )
+                        </div>
+                    </div>
+                    #end
+                #end
+
+                #if( $birthdate == "true" )
+                <div class="form-group $groupClass">
+                    <label class="col-md-3 control-label text-right-sm trans-lookup" for="birthDate">Birth date</label>
+                    <div class="$fieldClass">
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter your date of birth" name="birthDate" id="" class="form-control date-time-picker" data-format="$services.dateManagerV1.datePattern('js')" value="$!services.dateManagerV1.formatDate( $user.birthDate )" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                #end
+                
+                #if( $formatter.toBool($message, true) )
+                <div class="form-group message-box group-no-label">
+                    <div class="col-md-offset-3 col-md-9 ">
+                        <textarea placeholder="Tell us how we can help" rows="10" class="form-control $formatter.ifTrue($messageRicheditor, 'toolbar-Lite', '') trans-lookup $formatter.ifTrue($messageRequired, 'required', '')" name="message"></textarea>
+                    </div>
+                </div>
+                #end
+
+
+                #if( $attachments )
+                    #set($attachmentRequired = $formatter.toBool($attachmentRequired, false) )
+                    #set($attachmentMultiple = $formatter.toBool($attachmentMultiple, false) )
+
+                    #set($attachmentLabel = $formatter.ifNull($formatter.cleanString($attachmentLabel), 'Attachments') )
+                    #set($attachmentTypes = $formatter.ifNull($formatter.cleanString($attachmentTypes), '') )
+
+                    <div class="form-group attachments group-no-label">
+                        <div class="col-md-offset-3 col-md-9 attachment">
+                            <button class="btn btn-block btn-info btn-upload" type="button"><i class="fas fa-plus"></i>
+                                <span class='trans-lookup' data-transcode='Attachments'>$attachmentLabel</span>
+                            </button>
+                            <input type="file" accept="$!attachmentTypes" class="hidden $formatter.ifTrue($attachmentRequired,'required','') hidden-upload" $formatter.ifTrue($attachmentMultiple, 'multiple', '')>
+                            <input type="hidden" class="attachments-list" readonly="">
+                        </div>
+                    </div>
+                #end
+
+                #if( $contactPage.hasOptins() && $showOptins == "true" && $formatter.isNotNull($optins))
+                #set ($optinsArr = $optins.split(","))
+                <div class="form-group group-no-label">
+                    <div class="col-md-offset-3 col-sm-12">
+                        #foreach($optin in $contactPage.optins)
+                        #if ($optinsArr.contains($optin.optinGroup.name))
+                        <div class="checkbox">
+                            <label class="col-md-9" for="optins_${optin.optinGroup.name}">
+                                <input type="checkbox" name="optins" value="$optin.optinGroup.name" id="optins_${optin.optinGroup.name}" />
+                                <span class="trans-lookup" data-transcode="optins-${optin.optinGroup.name}-message">$optin.message</span>
+                            </label>
+                        </div>
+                        #end
+                        #end
+                    </div>
+                </div>
+                #end
+
+                #if( $contactPage.captchaApp )
+                <div class="form-group group-no-label">
+                    <div class="col-md-offset-3 col-md-9">
+                        #portlets("captcha")
+                    </div>
+                </div>
+                #end
+
+                <div class="form-group group-no-label">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" data-transcode="contact-form-send-btn" class="trans-lookup btn $submitSize $submitColor $!submitClass"><i class="fas fa-paper-plane"></i> $formatter.firstNotNull($submitText, "Send")</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12">
+            $!content.body
+        </div>
+    </div>
+
+    <div class="thankyou row" style="display: none">
+        <div class="col-sm-12">
+            #set($thankYouMessage = $thankYou)
+            #if ($formatter.isNull($thankYouMessage))
+            #set($thankYouMessage = "Thank you for your message, we will reply shortly.")
+            #end
+            <div class="trans-lookup alert alert-success" data-transcode="contact-form-thankyou-msg">$thankYouMessage</div>
+        </div>
+    </div>
+</div>

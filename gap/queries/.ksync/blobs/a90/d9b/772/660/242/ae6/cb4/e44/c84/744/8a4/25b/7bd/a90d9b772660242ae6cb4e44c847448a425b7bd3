@@ -1,0 +1,108 @@
+<points-rules>
+    <ruleTypes>
+      <points-rule>
+        <id>ruleGapOnePerApp</id>
+        <title>GAP rule 1 point per application</title>
+        <fields>
+          <field>
+            <name>field1</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field1</title>
+            <options />
+          </field>
+          <field>
+            <name>field2</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field2</title>
+            <options />
+          </field>
+        </fields>
+        <processFn>doProcessGapOnePoint</processFn>
+        <includeFn>isIncludedGapOnePoint</includeFn>
+      </points-rule>
+      <points-rule>
+        <id>ruleBnrOnePerApp</id>
+        <title>BNR rule 1 point per application</title>
+        <fields>
+          <field>
+            <name>field1</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field1</title>
+            <options />
+          </field>
+          <field>
+            <name>field2</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field2</title>
+            <options />
+          </field>
+        </fields>
+        <processFn>doProcessBnrOnePoint</processFn>
+        <includeFn>isIncludedBnrOnePoint</includeFn>
+      </points-rule>    
+      <points-rule>
+        <id>ruleAthOnePerApp</id>
+        <title>ATH rule 1 point per application</title>
+        <fields>
+          <field>
+            <name>field1</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field1</title>
+            <options />
+          </field>
+          <field>
+            <name>field2</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field2</title>
+            <options />
+          </field>
+        </fields>
+        <processFn>doProcessAthOnePoint</processFn>
+        <includeFn>isIncludedAthOnePoint</includeFn>
+      </points-rule>
+      <points-rule>
+        <id>ruleOnyOnePerApp</id>
+        <title>ONY rule 1 point per application</title>
+        <fields>
+          <field>
+            <name>field1</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field1</title>
+            <options />
+          </field>
+          <field>
+            <name>field2</name>
+            <required>false</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>field2</title>
+            <options />
+          </field>
+        </fields>
+        <processFn>doProcessOnyOnePoint</processFn>
+        <includeFn>isIncludedOnyOnePoint</includeFn>
+      </points-rule>
+    </ruleTypes>
+</points-rules>

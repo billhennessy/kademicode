@@ -1,0 +1,22 @@
+{
+    "dependencies": [
+        {
+            "js": {
+                "group": "main",
+                "path": "/theme/myscripts.js"
+            }
+        },
+        {
+            "less": {
+                "lessMedia": "all",
+                "path": "/theme/my-less.less"
+            }
+        },
+        {
+            "css": {
+                "cssMedia": "all",
+                "path": "/theme/my-css.css"
+            }
+        }        
+    ]
+}

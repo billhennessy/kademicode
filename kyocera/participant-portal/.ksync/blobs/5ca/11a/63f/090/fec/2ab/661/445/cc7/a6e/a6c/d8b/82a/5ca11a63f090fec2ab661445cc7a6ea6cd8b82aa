@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Checkout</title>
+	</head>
+	<body>
+		<section>
+			<div class="container-bg background-for store-checkout-page">
+				<div class="container-layout container-fluid">
+					<div class="container-content-wrapper">
+						<div class="row">
+							<div class="col-sm-8 ui-resizable" data-type="container-content">
+								<section data-currency-symbol="$" data-allow-checkout-using-points="true" data-number-decimal="0" data-hide-quantity="false" data-type="component-ecomCheckoutCart">
+									<div data-dynamic-href="_components/ecomCheckoutCart" id="default-ecomCheckoutCart"></div>
+								</section>
+							</div>
+							<div class="col-sm-4 ui-resizable" data-type="container-content">
+								<div data-success-message="" data-default-country="US" data-number-decimal="0" data-order-confirmation-type="redirect" data-show-shipping-form="true" data-show-notes="false" data-show-state="false" data-allow-org-address="true" data-allow-profile-address="true" data-type="component-ecomCheckoutFormPointsOnly">
+									<div data-dynamic-href="_components/ecomCheckoutFormPointsOnly" id="keditor-ui-16629911792758371645486"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "query": {
+    "stored_fields": [
+      "topicName",
+      "recognitionName",
+      "periodStart"
+    ],
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "_type": "RecognitionPeriodResult"
+            }
+          }
+        ]
+      }
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "recognitionPeriodResult"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"topicName\",\"recognitionName\",\"periodStart\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"topicName\":\"program-tiers\"}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"topicName\":\"program-tiers\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"topicName\",\"field\":\"topicName\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"program-tiers\"}]}",
+    "filters": [],
+    "fields": [
+      "topicName",
+      "recognitionName",
+      "periodStart"
+    ],
+    "aggregations": []
+  }
+}

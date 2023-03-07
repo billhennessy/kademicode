@@ -1,0 +1,6 @@
+<integration>
+    <endpoint id='first' type='http' address='/inbound/orderHeaders.csv' pipelinePath='/orderHeaders.xml' direction='in' enabled='true'/>
+    <endpoint id='second' type='http' address='/inbound/orderDetails.csv' pipelinePath='/orderDetails.xml' direction='in' enabled='true'/>
+    
+    <endpoint id='levels' type='http' address='/outbount/levels.json' piplinePath='/levels.xml' direction='out' enabled='true' />
+</integration>

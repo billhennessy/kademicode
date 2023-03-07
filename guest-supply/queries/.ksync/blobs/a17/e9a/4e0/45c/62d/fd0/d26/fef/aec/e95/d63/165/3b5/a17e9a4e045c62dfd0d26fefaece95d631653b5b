@@ -1,0 +1,9 @@
+<controllers>
+    <source>/APP-INF/app.js</source>
+    <source>/APP-INF/adminFileManager.js</source>
+    <source>/APP-INF/websiteFileManager.js</source>
+    
+    <menu parentId="menuRoot" id="menuGuestSupplyApp" text="Guest Supply App" path="/staffPointsApp/"css="fa fa-coffee" ordering="80"/>
+    <menu type="website" parentId="menuRoot" id="menuGuestSupplyApp" text="Guest Supply App" path="/staffPointsApp/" ordering="80"/>
+</controllers>
+            

@@ -1,0 +1,44 @@
+<points-rules>
+    <ruleTypes>
+        <points-rule>
+            <id>dsrRule</id>
+            <title>DSR Rule</title>
+            <fields/>
+            <processFn>doProcessDSR</processFn>
+            <includeFn>isIncludedDSR</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>managerRule</id>
+            <title>Manager Rule</title>
+            <fields/>
+            <processFn>doProcessManager</processFn>
+            <includeFn>isIncludedManager</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>cappedPromoRule</id>
+            <title>Capped Promotion Rule</title>
+            <fields>
+                <field>
+                    <name>pointsTag</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Points Tag</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>pointsCap</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Points Cap (# of points)</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessCapped</processFn>
+            <includeFn>isIncludedCapped</includeFn>
+        </points-rule>
+    </ruleTypes>
+</points-rules>

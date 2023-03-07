@@ -1,0 +1,6 @@
+{
+  "title": "Organisations with No Membership of Type Dealership",
+  "description": "Filter by OrgType",
+  "tableName": "orgsNoMembers",
+  "contentFile": "organisations-with-no-membership-of-type-dealership.html"
+}

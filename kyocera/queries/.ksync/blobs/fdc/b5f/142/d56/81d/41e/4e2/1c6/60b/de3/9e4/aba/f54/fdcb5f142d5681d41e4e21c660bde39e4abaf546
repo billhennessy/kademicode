@@ -1,0 +1,4 @@
+<controllers>
+    <source>points.js</source>
+    <source>eligibleProducts.js</source>
+</controllers>

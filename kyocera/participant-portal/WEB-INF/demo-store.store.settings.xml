@@ -1,0 +1,8 @@
+<pricing-config>
+  <currencyCode>Points</currencyCode>
+  <pointsBuckets>
+    <string>participant-points</string>
+  </pointsBuckets>
+  <useInventoryControl>false</useInventoryControl>
+  <cashDivisor>0.0</cashDivisor>
+</pricing-config>

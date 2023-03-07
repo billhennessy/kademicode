@@ -1,0 +1,307 @@
+#parse("/theme/apps/content/components/menuMacros.html")
+
+#set($showCart = $formatter.toBool($showCart, false))
+
+#if( $menu )
+#else
+    #set( $menu = $menuManager.rootMenuItem )
+#end
+
+#set($logoLink = $formatter.ifNull($logoLink, '/dashboard'))
+
+#set($showUserMenu = $formatter.toBool($showUserMenu, true))
+
+#if( $showOrgSelector )
+#else
+    #set( $showOrgSelector = false )
+#end
+
+#if( $showLangSelector )
+#else
+    #set( $showLangSelector = false )
+#end
+
+#if( $showSearch )
+#else
+    #set( $showSearch = false )
+#end
+
+#if( $showCart )
+    #set($showKcomCart = $formatter.ifNull($showKcomCart, true))
+    #set($showPointBucket = $formatter.ifNull($showPointBucket, true))
+#else
+    #set( $showCart = false )
+#end
+
+#if( $showSocialLogin )
+#else
+    #set( $showSocialLogin = false )
+#end
+
+#if( $showSubMenuOnHover )
+#else
+    #set( $showSubMenuOnHover = false )
+#end
+
+#set( $memberships = $userResource.primaryMemberships )
+#set( $currentOrgId = $request.getCookie("org").value )
+#if( $currentOrgId )
+    #set( $curMembership = $memberships.filterByOrg($currentOrgId).first )
+#else
+    #set( $curMembership = $memberships.first )
+#end
+#set( $currentOrg = $curMembership.org  )
+
+#set( $currentLang = $request.getCookie("selectedLangCode").value )
+
+#if (!$navbarLayout)
+    #set ($navbarLayout = "container-fluid")
+#end
+
+#if (!$navbarStyle)
+    #set ($navbarStyle = "navbar-default")
+#end
+
+#if($navbarStyle == "navbar-pills")
+    #set($navPills = 'nav-pills')
+#end
+
+#if (!$displayMenuItem)
+    #set ($displayMenuItem = "text")
+#end
+
+#set ($logoHeight = $formatter.ifNull($logoHeight, 40))
+
+#if ($formatter.isNull($usernamePlaceholder) || !$usernamePlaceholder)
+    #set ($usernamePlaceholder = "Enter your email address or username")
+#end
+
+#if ($formatter.isNull($passwordPlaceholder) || !$passwordPlaceholder)
+    #set ($passwordPlaceholder = "Enter your password")
+#end
+
+#set ($forgotPasswordTitle = $formatter.ifNull($forgotPasswordTitle, "Forgot password"))
+#set ($keepMeLoginTitle = $formatter.ifNull($keepMeLoginTitle, "Keep me logged in"))
+#set ($hideKeepLogin = $formatter.toBool($hideKeepLogin, false))
+
+#set($showKcomCart = $formatter.toBool($showKcomCart, false))
+#set($showPointBucket = $formatter.toBool($showPointBucket, false))
+#set($showShoppingPorlets = $showCart || $showKcomCart || $showPointBucket)
+
+<div id="menu3Navbar" class="navbar $!navbarStyle" role="navigation">
+    <div class="">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand navbar-brand logo $!logopadding"  style="padding: #if ($logopadding) $logopadding  #else 15px #end" href="${logoLink}">
+                #if( $logo )
+                    #set ( $navbarHeight = $!rootFolder.themeParams.get('navbar-height') )
+                    <img style="height: $!{logoHeight}px; max-height: ${navbarHeight}" src="$logo" class="img-responsive" />
+                #else
+                    No Logo
+                #end
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse navbar-main-collapse">
+            <ul id="navbar-right" class="nav navbar-nav $!navPills navbar-right">
+                #foreach($item in $menu.visible)
+                    #if ($item.text == "New")
+                        <li class="dropdown  nav-${item.id}-wrapper">
+                            <a href="#" class="dropdown-toggle nav-${item.id}" data-toggle="dropdown" $formatter.ifTrue($showSubMenuOnHover,
+                                'data-hover="dropdown"', '') title="$item.text"  data-ordering="$item.ordering"
+                                >
+                                <i class="$item.cssClass"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                #set ($separators = ["menuLeadManNewSep1", "menuLeadManNewSep2"]) ## LeadManApp
+                                #foreach( $subitem in $item.visible )
+                                    #showMenuItem( $subitem, true, $caret, $separators.contains($subitem.id) )
+                                #end
+                            </ul>
+                        </li>
+                        #break
+                    #end
+                #end
+                <li class=" nav-menuDashboard-wrapper" data-ordering="1">
+                    <a class="nav-menuDashboard dropdown-toggle" style="" href="/dashboard" shape="rect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        #foreach($item in $menu.visible)
+                            #if ($item.href && $page.href.contains($item.href))
+                                <span>$item.text</span>
+                            #elseif( $item.items )
+                                #foreach($subitem in $item.visible)
+                                    #if ($subitem.href && $page.href.contains($subitem.href))
+                                        <span>$subitem.text</span>
+                                    #end
+                                #end
+                            #end
+                        #end
+                        #if($page.href == '/' || $page.href == '/index.html')
+                        <span>Home</span>
+                        #elseif($page.href.contains("/profile"))
+                        <span>Profile</span>
+                        #end
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        #foreach($item in $menu.visible)
+                            #if( $item.text == "New")
+                            #else
+                            #if( $item.items && $item.text != "Dashboard")
+                            <li role="separator" class="divider"></li>
+                            #end
+                            <li>
+                                #if( $item.href )
+                                <a href="$!item.href"><b>$item.text</b></a>
+                                #else
+                                <span style='padding: 3px 20px'><b>$item.text</b></span>
+                                #end
+                            </li>
+                            #if( $item.items )
+                                #foreach($subitem in $item.visible)
+                                <li><a href="$!subitem.href">$subitem.text</a></li>
+                                #end
+                            #end
+                            #end
+                        #end
+                    </ul>
+                </li>
+
+                #if ($showOrgSelector == true)
+                    #set ($orgArr = $services.queryManager.availableOrgs)
+                    #if ($orgArr.size() > 1)
+                    <li class="simple-navbar-org-selector">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            #if( $services.queryManager.currentTeamOrg )
+                            $services.queryManager.currentTeamOrg.formattedName
+                            #else
+                            Select org
+                            #end
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            #foreach($org in $orgArr)
+                            #if ($services.queryManager.currentTeamOrg && $services.queryManager.currentTeamOrg.orgId == $org.orgId)
+                            <li><a class="select-org" href="$org.orgId"><i class="fa fa-check text-success"></i> $org.title</a></li>
+                            #else
+                            <li><a class="select-org" href="$org.orgId"><i class="fa fa-check" style="visibility: hidden"></i> $org.title</a></li>
+                            #end
+                            #end
+                        </ul>
+                    </li>
+                    #end
+                #end
+
+                #if ($showLangSelector == true)
+                    <li class="dropdown navbar-lang-selector">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-language"></i>
+                            #if( $rootFolder.selectedLanguage )
+                                $rootFolder.selectedLanguage.title
+                            #else
+                                Default
+                            #end
+
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="select-lang" href="">Default</a></li>
+                            #foreach($lang in $rootFolder.languages)
+                            <li><a class="select-lang" href="$lang.code">$lang.title</a></li>
+                            #end
+                        </ul>
+                    </li>
+                #end
+
+                 #if($showShoppingPorlets)
+                    #portlets("shoppingCart")
+                #end
+
+                #if ($showUserMenu)
+                    #if($user)
+                        <li class="dropdown user">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                #set ($ava = '/theme/apps/user/profile.png')
+                                #if ($userResource.profilePicHref && $userResource.profilePicHref != "/theme/apps/user/profile.png")
+                                #set ($ava = $userResource.profilePicHref)
+                                #end
+                                <span class="special-img img-circle" id="profile-avatar" style="background: url('$!ava') no-repeat center; background-size: cover;"></span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="/profile" class="trans-lookup" data-transcode="profile">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="logout trans-lookup" data-transcode="logout">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    #else
+                        <li class="dropdown login">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="trans-lookup" data-transcode="login">Login</span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li style="min-width: 320px; padding: 15px">
+                                    <form class="form-horizontal form-horizontal-narrower" role="form">
+                                        <div class="form-group email">
+                                            <label class="control-label col-md-3" for="inputEmail">Email</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="inputEmail" name="email" title="$!usernamePlaceholder" placeholder="$!usernamePlaceholder"  required="true" class="form-control required" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="inputPassword">Password</label>
+                                            <div class="col-md-9">
+                                                <input type="password" autocomplete="current-password" name="password" id="inputPassword" title="$!passwordPlaceholder" placeholder="$!passwordPlaceholder" required="true" class="form-control required password" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                #if(!$hideKeepLogin)
+                                                    <p class="remmber-login">
+                                                        <label>
+                                                            <input type="checkbox" class="" name="keepLoggedIn" value="true" />
+                                                            <span class="trans-lookup" data-transcode="keep-me-logged-in">$keepMeLoginTitle</span>
+                                                        </label>
+                                                    </p>
+                                                #end
+                                                <button type="submit" class="btn btn-success">Sign in</button>
+                                                <p>
+                                                    <small>
+                                                        <a href="/password-reset" title="$!forgotPasswordTitle" class="Forgot">$!forgotPasswordTitle</a>
+                                                    </small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        #if($showSocialLogin  == true)
+                                            #portlets("socialLoginForm")
+                                        #end
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    #end
+                #end
+            </ul>
+            #if ($showSearch == true)
+            <form id="navbar-search" class="navbar-form" action="/contentSearch" role="form" style="">
+                <div class="form-group has-feedback">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="text" name="omni" placeholder="Start your search here" class="form-control" style="width: 400px" />
+                    </div>
+                </div>
+                <ul id="omni-search-suggestions"></ul>
+            </form>
+            #end
+        </div><!--/.nav-collapse -->
+    </div>
+</div>

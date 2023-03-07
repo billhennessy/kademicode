@@ -1,0 +1,275 @@
+#parse("/theme/apps/content/components/menuMacros.html")
+
+#set($showCart = $formatter.toBool($showCart, false))
+
+#if( $menu )
+#else
+    #set( $menu = $menuManager.rootMenuItem )
+#end
+
+#set($logoLink = $formatter.ifNull($logoLink, '/dashboard'))
+
+#set($showUserMenu = $formatter.toBool($showUserMenu, true))
+
+#if( $showOrgSelector )
+#else
+    #set( $showOrgSelector = false )
+#end
+
+#if( $showLangSelector )
+#else
+    #set( $showLangSelector = false )
+#end
+
+#if( $showSearch )
+#else
+    #set( $showSearch = false )
+#end
+
+#if( $showCart )
+    #set($showKcomCart = $formatter.ifNull($showKcomCart, true))
+    #set($showPointBucket = $formatter.ifNull($showPointBucket, true))
+#else
+    #set( $showCart = false )
+#end
+
+#if( $showSocialLogin )
+#else
+    #set( $showSocialLogin = false )
+#end
+
+#if( $showSubMenuOnHover )
+#else
+    #set( $showSubMenuOnHover = false )
+#end
+
+#set( $memberships = $userResource.primaryMemberships )
+#set( $currentOrgId = $request.getCookie("org").value )
+#if( $currentOrgId )
+    #set( $curMembership = $memberships.filterByOrg($currentOrgId).first )
+#else
+    #set( $curMembership = $memberships.first )
+#end
+#set( $currentOrg = $curMembership.org  )
+
+#set( $currentLang = $request.getCookie("selectedLangCode").value )
+
+#if (!$navbarLayout)
+    #set ($navbarLayout = "container-fluid")
+#end
+
+#if (!$navbarStyle)
+    #set ($navbarStyle = "navbar-default")
+#end
+
+#if($navbarStyle == "navbar-pills")
+    #set($navPills = 'nav-pills')
+#end
+
+#if (!$displayMenuItem)
+    #set ($displayMenuItem = "text")
+#end
+
+#set ($logoHeight = $formatter.ifNull($logoHeight, 40))
+#if ($formatter.isNull($usernamePlaceholder) || !$usernamePlaceholder)
+    #set ($usernamePlaceholder = "Enter your email address or username")
+#end
+
+#if ($formatter.isNull($passwordPlaceholder) || !$passwordPlaceholder)
+    #set ($passwordPlaceholder = "Enter your password")
+#end
+
+#set ($forgotPasswordTitle = $formatter.ifNull($forgotPasswordTitle, "Forgot password"))
+#set ($keepMeLoginTitle = $formatter.ifNull($keepMeLoginTitle, "Keep me logged in"))
+#set ($hideKeepLogin = $formatter.toBool($hideKeepLogin, false))
+
+#set($usernameType = $formatter.ifNull($usernameType, "nickName") )
+
+#set($showKcomCart = $formatter.toBool($showKcomCart, false))
+#set($showPointBucket = $formatter.toBool($showPointBucket, false))
+#set($showShoppingPorlets = $showCart || $showKcomCart || $showPointBucket)
+
+<style>
+  #login-dropdown {
+    min-width: 440px; 
+    padding: 15px;
+  }
+
+  @media (max-width: 768px) {
+    #login-dropdown {
+      min-width: 320px; 
+      padding: 15px;
+    }
+  }
+</style>
+
+<div class="navbar $!navbarStyle" role="navigation">
+    <div class="">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            #if($showShoppingPorlets)
+                #portlets("shoppingCartMobile")
+            #end
+
+            <a class="brand navbar-brand logo $!logopadding"  style="padding: #if ($logopadding) $logopadding  #else 15px #end" href="${logoLink}">
+                #if( $logo )
+                    #set ( $navbarHeight = $!rootFolder.themeParams.get('navbar-height') )
+                    <img style="height: $!{logoHeight}px; max-height: ${navbarHeight}" src="$logo" class="img-responsive" />
+                #else
+                    No Logo
+                #end
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse navbar-main-collapse">
+            <ul class="nav navbar-nav $!navPills navbar-right">
+                #foreach($item in $menu.visible)
+                    #if ($item.text == "New")
+                        #set ($separators = ["menuLeadManNewSep1", "menuLeadManNewSep2"]) ## LeadManApp
+                        #showMenuItem( $item, false, '<i class="fa fa-angle-down"></i>', $separators.contains($subitem.id) )
+                    #else
+                        #showMenuItem( $item, false, '<i class="fa fa-angle-down"></i>' )
+                    #end
+                #end
+
+                #if ($showSearch == true)
+                    <li class="navbar-search">
+                        #portlets("searchInput")
+                    </li>
+                #end
+
+                #if ($showOrgSelector == true)
+                    #set ($orgArr = $services.queryManager.availableOrgs)
+                    #if ($orgArr.size() > 1)
+                    <li class="simple-navbar-org-selector">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Select org
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            #foreach($org in $orgArr)
+                            #if ($services.queryManager.currentTeamOrg && $services.queryManager.currentTeamOrg.orgId == $org.orgId)
+                            <li><a class="select-org" href="$org.orgId"><i class="fa fa-check text-success"></i> $org.title</a></li>
+                            #else
+                            <li><a class="select-org" href="$org.orgId"><i class="fa fa-check" style="visibility: hidden"></i> $org.title</a></li>
+                            #end
+                            #end
+                        </ul>
+                    </li>
+                    #end
+                #end
+
+                #if ($showLangSelector == true)
+                    <li class="dropdown navbar-lang-selector">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-language"></i>
+                            #if( $rootFolder.selectedLanguage )
+                                $rootFolder.selectedLanguage.title
+                            #else
+                                Default
+                            #end
+
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="select-lang" href="">Default</a></li>
+                            #foreach($lang in $rootFolder.languages)
+                            <li><a class="select-lang" href="$lang.code">$lang.title</a></li>
+                            #end
+                        </ul>
+                    </li>
+                #end
+
+                #if($showShoppingPorlets)
+                    #portlets("shoppingCart")
+                #end
+                
+                #if ($showUserMenu)
+                    #if($user)
+                        <li class="dropdown user">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                #set($userNameTitle = $userResource.title)
+                                #if($usernameType == "userId")
+                                    #set($userNameTitle = $userResource.name)
+                                #elseif($usernameType == "firstName")
+                                    #set($userNameTitle = $userResource.firstName)
+                                #elseif($usernameType == "surname")
+                                    #set($userNameTitle = $userResource.surName)
+                                #end
+
+                                #if($formatter.isEmpty($userNameTitle))
+                                    #set($userNameTitle = $userResource.title)
+                                #end
+
+                                $formatter.truncate($userNameTitle, 10)
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="/profile" class="trans-lookup" data-transcode="profile">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="logout trans-lookup" data-transcode="logout">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    #else
+                        <li class="dropdown login">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="trans-lookup" data-transcode="login">Login</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li id="login-dropdown">
+                                    <form class="form-horizontal form-horizontal-narrower" role="form">
+                                        <div class="form-group email">
+                                            <label class="control-label trans-lookup col-md-3" for="inputEmail">Email</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="inputEmail" name="email" title="$!usernamePlaceholder" placeholder="$!usernamePlaceholder" required="true" class="form-control required" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label trans-lookup col-md-3" for="inputPassword">Password</label>
+                                            <div class="col-md-9">
+                                                <input type="password" autocomplete="current-password" name="password" id="inputPassword" title="$!passwordPlaceholder" placeholder="$!passwordPlaceholder" required="true" class="form-control required password" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                #if(!$hideKeepLogin)
+                                                    <p class="remmber-login">
+                                                        <label>
+                                                            <input type="checkbox" class="" name="keepLoggedIn" value="true" />
+                                                            <span class="trans-lookup" data-transcode="keep-me-logged-in">$!keepMeLoginTitle</span>
+                                                        </label>
+                                                    </p>
+                                                #end
+                                                <button type="submit" class="btn btn-success"><span class="trans-lookup" data-transcode="login-sign-in">Sign in</span></button>
+                                                <p>
+                                                    <small>
+                                                        <a href="/password-reset" title="$!forgotPasswordTitle" class="trans-lookup Forgot" data-transcode="Forgot">$!forgotPasswordTitle</a>
+                                                    </small>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        #if($showSocialLogin  == true)
+                                            #portlets("socialLoginForm")
+                                        #end
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    #end
+                #end
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>

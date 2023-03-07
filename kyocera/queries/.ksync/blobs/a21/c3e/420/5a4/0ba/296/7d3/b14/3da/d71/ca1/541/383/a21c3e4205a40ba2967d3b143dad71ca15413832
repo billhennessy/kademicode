@@ -1,0 +1,867 @@
+{
+  "query": {
+    "stored_fields": [
+      "name",
+      "title",
+      "field1",
+      "field2"
+    ],
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "categories.name": "kyocera"
+            }
+          },
+          {
+            "term": {
+              "_type": "product"
+            }
+          }
+        ]
+      }
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "products"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"name\",\"title\",\"productField1\",\"productField2\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"categories.name\":\"kyocera\"}},{\"term\":{\"_type\":\"product\"}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"categories.name\":\"kyocera\"}},{\"term\":{\"_type\":\"product\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"categories.name\",\"field\":\"categories.name\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"kyocera\"},{\"id\":\"_type\",\"field\":\"_type\",\"type\":\"string\",\"input\":\"select\",\"operator\":\"equal\",\"value\":\"product\"}]}",
+    "filters": [
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "assetId",
+        "label": "assetId",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "baseCost",
+        "label": "baseCost",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brandId",
+        "label": "brandId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brandName",
+        "label": "brandName",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brandTitle",
+        "label": "brandTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "brief",
+        "label": "brief",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "canOrder",
+        "label": "canOrder",
+        "type": "boolean"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "canOrderQuantity",
+        "label": "canOrderQuantity",
+        "type": "boolean"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "categories.name",
+        "label": "categories.name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "categories.title",
+        "label": "categories.title",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "categoryIds",
+        "label": "categoryIds",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "deletedDate",
+        "label": "deletedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "endDate",
+        "label": "endDate",
+        "type": "date"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "field1",
+        "label": "field1",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "field2",
+        "label": "field2",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "field3",
+        "label": "field3",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "freightCost",
+        "label": "freightCost",
+        "type": "integer"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "heightCm",
+        "label": "heightCm",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "id",
+        "label": "id",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "imageHash",
+        "label": "imageHash",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "images.hash",
+        "label": "images.hash",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "images.href",
+        "label": "images.href",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "images.name",
+        "label": "images.name",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lengthCm",
+        "label": "lengthCm",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "name",
+        "label": "name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "notes",
+        "label": "notes",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderColumns",
+        "label": "orderColumns",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parameterOptions.cost",
+        "label": "parameterOptions.cost",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parameterOptions.imageHash",
+        "label": "parameterOptions.imageHash",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parameterOptions.name",
+        "label": "parameterOptions.name",
+        "type": "string"
+      },
+      {
+        "indexType": "integer",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parameterOptions.position",
+        "label": "parameterOptions.position",
+        "type": "integer"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parameterOptions.title",
+        "label": "parameterOptions.title",
+        "type": "string"
+      },
+      {
+        "indexType": "integer",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "position",
+        "label": "position",
+        "type": "integer"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productField1",
+        "label": "productField1",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productField2",
+        "label": "productField2",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productField3",
+        "label": "productField3",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productId",
+        "label": "productId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productParameters.name",
+        "label": "productParameters.name",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productParameters.title",
+        "label": "productParameters.title",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "relatedAppId",
+        "label": "relatedAppId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "relatedItemId",
+        "label": "relatedItemId",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "rrp",
+        "label": "rrp",
+        "type": "integer"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "startDate",
+        "label": "startDate",
+        "type": "date"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "status",
+        "label": "status",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierId",
+        "label": "supplierId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierOrgId",
+        "label": "supplierOrgId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierOrgs",
+        "label": "supplierOrgs",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierTitle",
+        "label": "supplierTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "tags",
+        "label": "tags",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "title",
+        "label": "title",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "webName",
+        "label": "webName",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "weightKgs",
+        "label": "weightKgs",
+        "type": "integer"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "widthCm",
+        "label": "widthCm",
+        "type": "integer"
+      }
+    ],
+    "fields": [
+      "name",
+      "title",
+      "productField1",
+      "productField2"
+    ],
+    "aggregations": []
+  }
+}

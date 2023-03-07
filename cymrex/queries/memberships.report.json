@@ -1,0 +1,5 @@
+{
+  "title": "Memberships",
+  "tableName": "tableMemberships",
+  "contentFile": "memberships.html"
+}

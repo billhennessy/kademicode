@@ -1,0 +1,21 @@
+<points-rules>
+    <ruleTypes>
+        <points-rule>
+            <id>essentialsRule</id>
+            <title>Essentials Rule</title>
+            <fields>
+                <field>
+                    <name>multiplier</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Multiplier</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessEssentials</processFn>
+            <includeFn>isIncludedEssentials</includeFn>
+        </points-rule>
+    </ruleTypes>
+</points-rules>

@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Organization Drilldown</title>
+		<link rel="template" href="theme/page" />
+		<script type="data/parameter" title="itemType" ></script>
+		<script type="data/parameter" title="category" ></script>
+		<script type="data/parameter" title="tags" ></script>
+	</head>
+	<body>
+		<div class="container-bg background-for" data-shadow-color="#FFFFFF">
+			<div class="container-layout container">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div data-type="component-blank">
+								<div data-dynamic-href="_components/teamList" id="keditor-ui-16625743212604160557555"></div>
+							</div>
+							<div data-picker-size="btn-md" data-picker-align="left" data-picker-color="btn-primary" data-picker-class="" data-type="component-orgSelector" data-groups="managers,sales-claimer">
+								<div data-dynamic-href="_components/orgSelector" id="keditor-ui-16625752072951160526902"></div>
+							</div>
+							<div data-query="" data-type="component-selectedOrganisation" data-enable-link="true">
+								<div data-dynamic-href="_components/selectedOrganisation" id="keditor-ui-1662575213322505620764"></div>
+							</div>
+							<div data-type="component-membersTablePoints" data-points-bucket="">
+								<div data-dynamic-href="_components/membersTablePoints" id="keditor-ui-16625752235726337496780"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

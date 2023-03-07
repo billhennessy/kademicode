@@ -1,0 +1,1298 @@
+<settings>
+  <app appInstanceId="jquery-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.6.0.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-pjax-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-cookie-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="nanoid-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="moment-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.26.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="phoneify-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-timeago-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.5.3.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="dropzone-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.3.0.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="cropperjs-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jqte-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="select2-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.0.3.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-msg-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.3.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="formBuilder" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.1.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-colorpicker-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.5.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="keymap-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-domFinder-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="ace-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.8.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-fullscreen-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.6.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="js-beautify-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.6.13</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="stupidtable-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="picturefill-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="animate-css-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.5.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="inputmask-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.3.12</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-lightbox-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.5.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="Reporting" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="handlebars-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.7.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="amcharts-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.10.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-reloadFragment-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="uri-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.19.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="d3-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.4.1.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="raphael-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.2.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="morris-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KDashboard" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="userDashboardApp" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="countries-states-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-jcrop-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.9.13</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-sweetalert-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="userApp" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="dynamicCss" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="content" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="scheduler" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="aws" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-dropdown-hover-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-upcrop-image-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="daterangepicker-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.0.11.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="datetimepicker-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.17.47.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="fontawesome-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>5.13.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="intl-tel-input-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>16.1.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-assetFinder-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-placeholder-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.3.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="materialize-carousel-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="media-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="mselect-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.3.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="mupload-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="nvd3-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.8.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="photoeditor-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="salesData" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="search" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-dotdotdot-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.7.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-knob-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.13</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="email" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KongoDB" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="funnels" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="tracking" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="learning" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="forums" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="moment-timezone-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.5.31-2020a</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-autogrow-textarea-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-file-upload-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>9.28.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="touchSwipe-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.6.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="rewards" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="slickSlider-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="wNumb-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="noUiSlider-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>14.2.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="cleave-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.5.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="fuelux-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.13.0.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-omniSearch-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-zoom-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.7.15</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KSearch" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="search-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="productsApp" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="team" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="datatables-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.10.11.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-easypiechart-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.1.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-map-donutchart-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="recorderjs-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.0</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-tagsinput-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.6.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="googlemap-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="paymentApp" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KContactus" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="contactUs" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="admin" enabled="true">
+    <settings>
+      <entry>
+        <string>forceHttps</string>
+        <string>true</string>
+      </entry>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="forums-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.0.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-kselector-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KyoceraApp" enabled="false">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>0.0.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="CardFunding" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="keditor-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.8.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KLearning" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.3.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KProducts" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KReporting" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.3.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-theme" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.4.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="k-theme" enabled="false">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.4.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KToolbar" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-select-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.12.4.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-ui-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.13.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KJsonData" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.3.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KPromotions" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.2.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KRecognition" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.8.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="reporting-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.0.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="signup" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string></string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="maritz-app" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jsencrypt-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.0.0-rc.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KSignup" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="selectizejs-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.5</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KConfirmDetails" enabled="true">
+    <settings>
+      <entry>
+        <string>includedOptins</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showBirthdate</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>newFieldModalTitle</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showTC</string>
+        <string>true</string>
+      </entry>
+      <entry>
+        <string>autoreload</string>
+        <string>true</string>
+      </entry>
+      <entry>
+        <string>groupOptins</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>tcURL</string>
+        <string>/terms/</string>
+      </entry>
+      <entry>
+        <string>confirmNewField</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showKademiID</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>newFieldModalText</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showPersonalDetails</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>preventCloseNewField</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showOptins</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>addressFields</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>orgLabelField</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>mandatoryAddress</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showExtraFields</string>
+        <string>true</string>
+      </entry>
+      <entry>
+        <string>availableGroups</string>
+        <string>dsr</string>
+      </entry>
+      <entry>
+        <string>maxMembership</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>addressType</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>version</string>
+        <string>1.5.6</string>
+      </entry>
+      <entry>
+        <string>preventClose</string>
+        <string>true</string>
+      </entry>
+      <entry>
+        <string>newFieldName</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showAddressFields</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>tcText</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>autoreloadNewField</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>orgGroup</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>groupName</string>
+        <string>confirmed</string>
+      </entry>
+      <entry>
+        <string>availableGroupsNewField</string>
+        <null/>
+      </entry>
+      <entry>
+        <string>showOrgField</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="admin-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>14.6.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-base" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.1.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="bootstrap-iconpicker-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.10.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="ckeditor-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.5.6.62</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="contactus-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.8.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="contentEditor-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.4.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="content-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.9.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="edmEditor-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.5.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="email-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.6.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="entityFinder-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-forms-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.7.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="jquery-user-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.1</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="kcode-selector-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.6</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KCommerce2" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>7.6.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KJourneys" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.4.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KSalesData" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.4.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="leadman-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>7.5.8</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="learner-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>5.3.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="mtree-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.1.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="pagedatepicker-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="payment-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.8.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="products-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.1.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="rewards-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>5.9.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="salesDataClaimer" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>7.3.9</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="salesdata-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>4.1.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="signup-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>2.5.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="team-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.4.3</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="typeahead-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.2.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="user-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>3.8.2</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="videojs-lib" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>7.20.2.4</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KTeam" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <string>1.0.7</string>
+      </entry>
+    </settings>
+  </app>
+  <app appInstanceId="KyoceraCode" enabled="true">
+    <settings>
+      <entry>
+        <string>version</string>
+        <null/>
+      </entry>
+    </settings>
+  </app>
+</settings>

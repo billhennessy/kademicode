@@ -1,0 +1,42 @@
+{
+  "query": {
+    "stored_fields": [
+      "customerMembershipOrgTitles",
+      "productName"
+    ],
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "productName": "230-First-Place-Smartwatch-Athleta-Week-1"
+            }
+          }
+        ]
+      }
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "productorders"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"customerMembershipOrgTitles\",\"productName\",\"customerFirstName\",\"customerSurName\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"productName\":\"230-First-Place-Smartwatch-Athleta-Week-1\"}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"productName\":\"230-First-Place-Smartwatch-Athleta-Week-1\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"productName\",\"field\":\"productName\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"230-First-Place-Smartwatch-Athleta-Week-1\"}]}",
+    "filters": [],
+    "fields": [
+      "customerMembershipOrgTitles",
+      "productName",
+      "customerFirstName",
+      "customerSurName"
+    ],
+    "aggregations": []
+  }
+}

@@ -1,0 +1,1 @@
+{"roles":["Administrator"],"indexes":["kongo-salesdataclaimer"],"queryBuilder":{"aggregationsSource":[],"queryToRun":"{\"stored_fields\":[],\"query\":{\"match_all\": {}},  \"size\":10000}","size":10000,"query":"","orderBy":[],"rules":"","filters":[],"fields":[],"aggregations":[],"order":""}}

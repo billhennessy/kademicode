@@ -1,0 +1,41 @@
+/**
+ * Award point based on Product field values
+ */
+ function doProcessDSR(record, ruleParams){
+    log.info("doProcessDSR 1: ID={} productSku={} serialNumber={}", record.id, record.productSku, record.field2);
+    var points = 0;
+    var dsrPoints = record.findProductSku().product.field1;
+    log.info("doProcessDSR 2: Product={}", dsrPoints);
+   
+   return dsrPoints;
+}
+
+function isIncludedDSR(record, ruleParams){
+    log.info("isIncludedDSR: productSku={} serialNumber={}", record.productSku, record.field2);
+    var product = record.productSku;
+    var um = services.userManager;
+    var thisProfile = um.findByName(record.salesBy.entityName);
+    log.info("isIncludedDSR: profile={}", thisProfile.userName);
+    var mems = um.membershipList(thisProfile);
+    
+    log.info("isIncludedDSR: membership={}", mems);
+
+   return mems.containsGroup(product);
+}
+
+/**
+ * Award point based on Product field values
+ */
+function doProcessManager(record, ruleParams){
+    log.info("doProcessManager 1: ID={} productSku={} serialNumber={}", record.id, record.productSku, record.field2);
+    var mgrPoints = 0;
+    mgrPoints = record.findProductSku().product.field2;
+    log.info("doProcessManager 2: Product={}", mgrPoints);
+   
+   return mgrPoints;
+}
+
+function isIncludedManager(record, ruleParams){
+    
+    return true;
+}

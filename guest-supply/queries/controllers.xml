@@ -1,0 +1,85 @@
+<controllers>
+  <source>points.js</source>
+  <source>order-history.js</source>
+  <source>orgs-no-members.js</source>
+  <source>recog-points.js</source>
+  <metrics>
+    <metric id="percentage-growth" decimals="0">
+      <title>Percentage Growth</title>
+      <metricTypeId>perc-growth</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>currentValMetricId</string>
+          <string>actual-sales</string>
+        </entry>
+        <entry>
+          <string>baselineMetricId</string>
+          <string>target-sales</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="target-sales" icon="fa-anchor" decimals="2">
+      <title>Target Sales</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>growth-target-purchases</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="actual-sales" icon="fa-bullseye" decimals="2">
+      <title>Actual Sales</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>invoiceData</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="average-order-size" decimals="0">
+      <title>Average Order Size</title>
+      <metricTypeId>abs-growth</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+    </metric>
+    <metric id="sum-of-orders" decimals="2">
+      <title>Sum of Orders</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>invoiceData</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>false</string>
+        </entry>
+      </params>
+    </metric>
+  </metrics>
+</controllers>

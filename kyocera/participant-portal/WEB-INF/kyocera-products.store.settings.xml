@@ -1,0 +1,6 @@
+<pricing-config>
+  <currencyCode>Points</currencyCode>
+  <pointsBuckets class="empty-list"/>
+  <useInventoryControl>true</useInventoryControl>
+  <cashDivisor>0.0</cashDivisor>
+</pricing-config>

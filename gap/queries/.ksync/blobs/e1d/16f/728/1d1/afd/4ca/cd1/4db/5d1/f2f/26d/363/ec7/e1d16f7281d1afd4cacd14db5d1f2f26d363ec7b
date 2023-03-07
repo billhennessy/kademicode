@@ -1,0 +1,2142 @@
+{
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "profile"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"userName\",\"points.priceless-points\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"_type\":\"profile\"}},{\"range\":{\"points.priceless-points\":{\"gt\":\"0\"}}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"_type\":\"profile\"}},{\"range\":{\"points.priceless-points\":{\"gt\":\"0\"}}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"_type\",\"field\":\"_type\",\"type\":\"string\",\"input\":\"select\",\"operator\":\"equal\",\"value\":\"profile\"},{\"id\":\"points.priceless-points\",\"field\":\"points.priceless-points\",\"type\":\"integer\",\"input\":\"text\",\"operator\":\"greater\",\"value\":\"0\"}]}",
+    "filters": [
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "acknowledgedDate",
+        "label": "acknowledgedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.addressLine1",
+        "label": "addresses.addressLine1",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.addressLine2",
+        "label": "addresses.addressLine2",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.addressState",
+        "label": "addresses.addressState",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.city",
+        "label": "addresses.city",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.country",
+        "label": "addresses.country",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "addresses.postcode",
+        "label": "addresses.postcode",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "averagePurchaseAmount",
+        "label": "averagePurchaseAmount",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "baseEmailJob",
+        "label": "baseEmailJob",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "baseEmailJobId",
+        "label": "baseEmailJobId",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "birthDate",
+        "label": "birthDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "branch",
+        "label": "branch",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "city.geoname_id",
+        "label": "city.geoname_id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "city.name",
+        "label": "city.name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "company",
+        "label": "company",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "confirm-employee-id",
+        "label": "confirm-employee-id",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "contactForm",
+        "label": "contactForm",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "contactRequest",
+        "label": "contactRequest",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "continent.code",
+        "label": "continent.code",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "continent.geoname_id",
+        "label": "continent.geoname_id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "continent.name",
+        "label": "continent.name",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "country.geoname_id",
+        "label": "country.geoname_id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "country.iso_code",
+        "label": "country.iso_code",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "country.name",
+        "label": "country.name",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "createdDate",
+        "label": "createdDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "credentialCreatedDate",
+        "label": "credentialCreatedDate",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "deviceCategory",
+        "label": "deviceCategory",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "directOrgIds",
+        "label": "directOrgIds",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "directOrgTypes",
+        "label": "directOrgTypes",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "domain",
+        "label": "domain",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "edmConverted",
+        "label": "edmConverted",
+        "type": "boolean"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "email",
+        "label": "email",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "emailDomain",
+        "label": "emailDomain",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "emailTrigger",
+        "label": "emailTrigger",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "emailTriggerId",
+        "label": "emailTriggerId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "employee-id",
+        "label": "employee-id",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "enabled",
+        "label": "enabled",
+        "type": "boolean"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "fieldNames",
+        "label": "fieldNames",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "firstName",
+        "label": "firstName",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "firstPurchaseDate",
+        "label": "firstPurchaseDate",
+        "type": "date"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "fromAddress",
+        "label": "fromAddress",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "funneledm_funnelId",
+        "label": "funneledm_funnelId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "funneledm_id",
+        "label": "funneledm_id",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "funneledm_leadId",
+        "label": "funneledm_leadId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "funneledm_nodeId",
+        "label": "funneledm_nodeId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "groupIds",
+        "label": "groupIds",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "groupNames",
+        "label": "groupNames",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "groups",
+        "label": "groups",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "hasCredentials",
+        "label": "hasCredentials",
+        "type": "boolean"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "highestPurchaseAmount",
+        "label": "highestPurchaseAmount",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "id",
+        "label": "id",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "ignored",
+        "label": "ignored",
+        "type": "boolean"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lastContacted",
+        "label": "lastContacted",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lastPurchaseDate",
+        "label": "lastPurchaseDate",
+        "type": "date"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lastSendAttempt.status",
+        "label": "lastSendAttempt.status",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lastSendAttempt.statusDate",
+        "label": "lastSendAttempt.statusDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lastVisit",
+        "label": "lastVisit",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "leadAssignedToProfileIds",
+        "label": "leadAssignedToProfileIds",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location.accuracy_radius",
+        "label": "location.accuracy_radius",
+        "type": "string"
+      },
+      {
+        "indexType": "float",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location.latitude",
+        "label": "location.latitude",
+        "type": "integer"
+      },
+      {
+        "indexType": "float",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location.longitude",
+        "label": "location.longitude",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location.metro_code",
+        "label": "location.metro_code",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "location.time_zone",
+        "label": "location.time_zone",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "lowestPurchaseAmount",
+        "label": "lowestPurchaseAmount",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.*",
+        "label": "memberships.*",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.createdDate",
+        "label": "memberships.createdDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.expiryDate",
+        "label": "memberships.expiryDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.group",
+        "label": "memberships.group",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.groupName",
+        "label": "memberships.groupName",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.modifiedDate",
+        "label": "memberships.modifiedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.org",
+        "label": "memberships.org",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.orgAddress",
+        "label": "memberships.orgAddress",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.orgTitle",
+        "label": "memberships.orgTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "memberships.roles",
+        "label": "memberships.roles",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "message",
+        "label": "message",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.de",
+        "label": "names.de",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.en",
+        "label": "names.en",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.es",
+        "label": "names.es",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.fr",
+        "label": "names.fr",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.ja",
+        "label": "names.ja",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.pt-BR",
+        "label": "names.pt-BR",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.ru",
+        "label": "names.ru",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "names.zh-CN",
+        "label": "names.zh-CN",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "nextAttempt",
+        "label": "nextAttempt",
+        "type": "date"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "nickName",
+        "label": "nickName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "numAttempts",
+        "label": "numAttempts",
+        "type": "string"
+      },
+      {
+        "indexType": "integer",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "numPurchases",
+        "label": "numPurchases",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "operataingSystemFamily",
+        "label": "operataingSystemFamily",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "operataingSystemName",
+        "label": "operataingSystemName",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "operatingSystemVersion",
+        "label": "operatingSystemVersion",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgTypes",
+        "label": "orgTypes",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "org_id",
+        "label": "org_id",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "org_orgId",
+        "label": "org_orgId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "organisation",
+        "label": "organisation",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgs",
+        "label": "orgs",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parent",
+        "label": "parent",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentOrgs",
+        "label": "parentOrgs",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "phone",
+        "label": "phone",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "points.monthly-priceless-points",
+        "label": "points.monthly-priceless-points",
+        "type": "integer"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "points.priceless-points",
+        "label": "points.priceless-points",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "points.testing-raffle-points",
+        "label": "points.testing-raffle-points",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "postal.code",
+        "label": "postal.code",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "profile",
+        "label": "profile",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "readStatus",
+        "label": "readStatus",
+        "type": "boolean"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recipientAddress",
+        "label": "recipientAddress",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recipient_id",
+        "label": "recipient_id",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recipient_userId",
+        "label": "recipient_userId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recog-achievements",
+        "label": "recog-achievements",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recog-highest-levels",
+        "label": "recog-highest-levels",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "registered_country.geoname_id",
+        "label": "registered_country.geoname_id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "registered_country.iso_code",
+        "label": "registered_country.iso_code",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "registered_country.name",
+        "label": "registered_country.name",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "replyToAddress",
+        "label": "replyToAddress",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "reqDate",
+        "label": "reqDate",
+        "type": "date"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "reqFrom",
+        "label": "reqFrom",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sendStatus",
+        "label": "sendStatus",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sendStatusDate",
+        "label": "sendStatusDate",
+        "type": "date"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sendStatusText",
+        "label": "sendStatusText",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sender_id",
+        "label": "sender_id",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sender_userId",
+        "label": "sender_userId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "sourceIp",
+        "label": "sourceIp",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "store-number",
+        "label": "store-number",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "storenumber",
+        "label": "storenumber",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "subdivisions.geoname_id",
+        "label": "subdivisions.geoname_id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "subdivisions.iso_code",
+        "label": "subdivisions.iso_code",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "subdivisions.name",
+        "label": "subdivisions.name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "subject",
+        "label": "subject",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "surName",
+        "label": "surName",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "traits.ip_address",
+        "label": "traits.ip_address",
+        "type": "string"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "traits.is_anonymous_proxy",
+        "label": "traits.is_anonymous_proxy",
+        "type": "boolean"
+      },
+      {
+        "indexType": "boolean",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "traits.is_satellite_provider",
+        "label": "traits.is_satellite_provider",
+        "type": "boolean"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userAgent",
+        "label": "userAgent",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userAgentFamily",
+        "label": "userAgentFamily",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userAgentRaw",
+        "label": "userAgentRaw",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userAgentType",
+        "label": "userAgentType",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userAgentVersion",
+        "label": "userAgentVersion",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userId",
+        "label": "userId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userName",
+        "label": "userName",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "userNameSearch",
+        "label": "userNameSearch",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "visitedUrl",
+        "label": "visitedUrl",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "website",
+        "label": "website",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      "userName",
+      "points.priceless-points"
+    ],
+    "aggregations": []
+  }
+}

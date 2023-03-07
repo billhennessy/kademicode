@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Terms</title>
+		<link rel="template" href="theme/page" />
+		<script type="data/parameter" title="itemType" ></script>
+		<script type="data/parameter" title="category" ></script>
+		<script type="data/parameter" title="tags" ></script>
+	</head>
+	<body>
+		<div class="container-bg background-for" data-shadow-color="#ffffff" style="margin-top: 100px; margin-bottom: 100px;">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" style="padding-bottom: 40px;" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<h1>Program Terms of Use</h1>
+								</div>
+							</div>
+							<div class="container-bg background-for">
+								<div class="container-layout">
+									<div class="container-content-wrapper">
+										<div class="row">
+											<div class="col-sm-5 ui-resizable" data-type="container-content">
+												<div class="keditor-component-text-content" data-type="component-text">
+													<div class="keditor-component-text-content-inner clearfix">
+														<div>
+															<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore architecto fuga tempore omnis aliquid.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-7 ui-resizable" data-type="container-content"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for section" data-shadow-color="#ffffff">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+						<div class="col-sm-6 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<h2>General</h2>
+									</div>
+								</div>
+							</div>
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore architecto fuga tempore omnis aliquid, rerum numquam deleniti ipsam earum velit aliquam deserunt, molestiae officiis mollitia accusantium suscipit fugiat esse magnam eaque cumque, iste corrupti magni? Illo dicta saepe, maiores fugit aliquid consequuntur aut, rem ex iusto dolorem molestias obcaecati eveniet vel voluptatibus recusandae illum, voluptatem! Odit est possimus nesciunt.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for section" data-shadow-color="#FFFFFF">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+						<div class="col-sm-6 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<h2>Use of Site Content</h2>
+									</div>
+								</div>
+							</div>
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore architecto fuga tempore omnis aliquid, rerum numquam deleniti ipsam earum velit aliquam deserunt, molestiae officiis mollitia accusantium suscipit fugiat esse magnam eaque cumque, iste corrupti magni? Illo dicta saepe, maiores fugit aliquid consequuntur aut, rem ex iusto dolorem molestias obcaecati eveniet vel voluptatibus recusandae illum, voluptatem! Odit est possimus nesciunt.&nbsp;Porro labore architecto fuga tempore omnis aliquid, rerum numquam deleniti ipsam earum velit aliquam deserunt.</p>
+										<p class="lead">Molestiae officiis mollitia accusantium suscipit fugiat esse magnam eaque cumque, iste corrupti magni? Illo dicta saepe, maiores fugit aliquid consequuntur aut, rem ex iusto dolorem molestias obcaecati eveniet vel voluptatibus recusandae illum, voluptatem!&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore architecto fuga tempore omnis aliquid, rerum numquam deleniti ipsam earum velit aliquam deserunt, molestiae officiis mollitia accusantium suscipit fugiat esse magnam eaque cumque, iste corrupti magni? Illo dicta saepe, maiores fugit aliquid consequuntur aut, rem ex iusto dolorem molestias obcaecati eveniet vel voluptatibus recusandae illum, voluptatem! Odit est possimus nesciunt.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

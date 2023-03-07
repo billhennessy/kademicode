@@ -1,0 +1,67 @@
+
+function defaultDataSeries(type){
+  
+    var series = "";
+    
+    if(type === 'headers'){
+        series = 'order-headers';
+    }
+    else if(type === 'details'){
+        series = 'order-detail';
+    }
+    else{
+        series = 'not found';
+    }
+    
+  return series;  //'ao-integration-tests-data-series';
+}
+
+/**
+ * Find sales record by orderNumber and amaunt
+ */
+function findSalesRecord(dataSeries, orderNumber, amount, attributedTo) {
+    var fieldOrdinal = dataSeries.findFieldOrdinal('orderNumber');
+
+    var crit = services.criteriaBuilders.get('salesDataRecord')
+        .eq('series', dataSeries)
+        .eq('field' + fieldOrdinal, orderNumber)
+        .eq('amount', formatter.toBigDecimal(amount));
+
+    var results = crit.execute(100);
+
+    if (formatter.isNotEmpty(results)) {
+        for (var i = 0; i < results.size(); i++) {
+            var record = results.get(i);
+
+            if (record.salesBy.entityName === attributedTo) {
+                log.info("findSalesRecord: invoiceNumber={} records={} Found={}", orderNumber, results, record);
+                return record
+            }
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Reset points allocations from record
+ */
+function resetSalesRecordPointsAllocation(record) {
+    var pointsList = record.findPointsAllocation();
+    log.info("resetSalesRecordPointsAllocation found points list: {}", pointsList);
+    if (formatter.isNotEmpty(pointsList)) {
+        pointsList.forEach(function (pa) {
+            log.info("resetSalesRecordPointsAllocation reset ok for point: {}", pa);
+            services.dataSeriesManager.resetPointsAllocation(pa, false);
+        });
+    }
+}
+
+/**
+ * Delete sales record
+ */
+function deleteSaleRecord(record) {
+    services.criteriaBuilders.getBuilder("salesDataRecord").delete(record);
+    log.info("deleteSaleRecord: {}", record);
+}
+

@@ -1,0 +1,31 @@
+<MultiStep>
+    <nextSteps>
+        <TransactionStep alwaysRollback="false" isolated="true">
+            <next class="MultiStep">
+                <nextSteps>
+                    <next class="CsvInput" skipIfBlankColumns="0" startRow="1">
+                        <next class="JsRowStep">
+                            <jsPath>/integration/orderHeaders.js</jsPath>
+                            <prepareFn>prepare</prepareFn>
+                            <finishFn>finishImport</finishFn>
+                            <execFn>processRow</execFn>
+                        </next>
+                    </next>
+                </nextSteps>
+            </next>
+        </TransactionStep>
+        <TransactionStep alwaysRollback="false" isolated="true">
+            <next class="ResultEmail">
+                <recipients>
+                    
+                    <string>bill.hennessy@maritz.com</string>
+                    <string>tarah.mclelland@maritz.com</string>
+                    <string>katrina.gardner@maritz.com</string>
+
+                </recipients>
+                <subject>Guest Supply Order Headers Process</subject>
+                <fromAddress>noreply@gsperksplay.com</fromAddress>
+            </next>
+        </TransactionStep>
+    </nextSteps>
+</MultiStep>

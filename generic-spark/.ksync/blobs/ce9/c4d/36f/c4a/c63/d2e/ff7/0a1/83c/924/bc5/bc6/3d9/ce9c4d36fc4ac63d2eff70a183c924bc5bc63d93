@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Home</title>
+		<link rel="template" href="theme/home" />
+		<script type="data/parameter" title="itemType" ></script>
+		<script type="data/parameter" title="category" ></script>
+		<script type="data/parameter" title="tags" ></script>
+	</head>
+	<body>
+		<div class="container-bg background-for">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div data-layout="horizontal" data-logo="" data-password-placeholder="Enter your password" data-username-placeholder="Enter your email address or username" data-type="component-loginForm">
+								<div data-dynamic-href="_components/loginForm" id="keditor-ui-16553028939427715639452"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,420 @@
+#set($fc = $formatter.newFormContext())
+#set ($dataSeriesObj = false)
+#set ($dm = $services.dateManagerV1)
+#set ($dsm = $services.dataSeriesManager)
+#set($app = $applications.salesDataClaimer )
+
+#set( $expireIn = $formatter.ifNull($expireIn, 0) )
+#set( $expireIn = $formatter.toInteger($expireIn) )
+
+#set( $allowMultipleClaims = false)
+#if($multipleClaims == 'Yes')
+    #set( $allowMultipleClaims = true)
+#end
+#if ($bgTransparent == "true")
+    #set ($formBgColor = "transparent")
+#end
+
+#set($showClaimedTeam = $formatter.toBool($showClaimedTeam, false))
+#set($multipleClaimsButton = $formatter.ifNull($multipleClaimsButton, "Bulk Claim"))
+
+#set($uniqueFieldCheck = $formatter.toBool($uniqueFieldCheck, false))
+
+#set( $currentTab = $fc.cleanedParam('tab'))
+#set( $currentTab = $formatter.ifNull($currentTab, "pending-claims"))
+#set ($isPending = ($currentTab == "pending-claims"))
+
+#set ($columnsDisplayArr = $formatter.fromCsv($columnsDisplay))
+
+#if ($formatter.isEmpty($columnsDisplayArr))
+    #set ($columnsDisplayArr = ['claimId', 'saleDate', 'amount', 'product', 'reward', 'expiryDate', 'status'])
+#end
+
+#set ($extraColumnsDisplayArr = $formatter.fromCsv($extraFields))
+#set ($selectedExtraColumns = $app.call("getDataSeriesExtraFieldsFromList", $extraColumnsDisplayArr, $dataSeries, $dsm) )
+
+#set($claimIdLabel = $formatter.firstNotNull($claimIdLabel, "Claim ID"))
+#set($saleDateLabel= $formatter.firstNotNull($saleDateLabel, "Sales Date"))
+#set($amountLabel = $formatter.firstNotNull($amountLabel, "Amount"))
+#set($productLabel = $formatter.firstNotNull($productLabel, "Product"))
+#set($rewardLabel = $formatter.firstNotNull($rewardLabel, "Reward"))
+#set($expiryDateLabel = $formatter.firstNotNull($expiryDateLabel, "Expiry date"))
+#set($claimedByLabel = $formatter.firstNotNull($claimedByLabel, "Claimed By"))
+#set($statusLabel = $formatter.firstNotNull($statusLabel, "Status"))
+
+<div class="tagging-claim-container">
+    #if ($page)
+        #set($claimType = $formatter.cleanString($claimType))
+        #set( $selectedDataSeries = $app.call("getSelectedDataSeries", $page, $claimType) )
+        #set( $itemsExtraFields = $formatter.fromCsv($itemsExtraFields) )
+        #set( $itemsExtraFieldsColumns = $app.call("getDataSeriesExtraFieldsFromList", $itemsExtraFields, $selectedDataSeries, $dsm) )
+
+        #if($formatter.isNull($selectedDataSeries))
+            <div class="alert alert-warning trans-lookup" data-transcode="cannot-find-sales-claim">Cannot find claim data series!</div>
+        #else
+            #set( $claimedSeries = $services.dataSeriesManager.dataSeries($selectedDataSeries) )
+
+            #set($claimTypeField = $formatter.cleanString($claimTypeField))
+            #set( $currentFilter = $fc.cleanedParam('filter'))
+            #set( $currentFilter = $formatter.ifNull($currentFilter, "SHOW ALL"))
+
+            #set($filteredSalesRecords = [])
+
+            #set( $crit = $formatter.newMap() )
+            #if( $formatter.isNotEmpty($critField) && $formatter.isNotEmpty($critValue) )
+                $formatter.call($crit.put($critField, $critValue))
+            #end
+
+            #if($isPending)
+                #set($salesRecords = $app.call('getUnclaimedSales', $page, $dataSeries, $crit))
+                #if($expireIn > 0)
+                    #foreach($record in $salesRecords)
+                        #set($dealDate = $formatter.toDate($record.periodFrom))
+                        #set($expireDate = $formatter.addDays($dealDate, $expireIn))
+                        #if( !$formatter.between( $expireDate, null, $formatter.getNow()) )
+                            #if( $filteredSalesRecords.add($record) )#end
+                        #end
+                    #end
+                #else
+                    #set( $filteredSalesRecords = $salesRecords )
+                #end
+            #else
+                #set($filteredSalesRecords = $app.call('findClaimedSales', $page, $dataSeries, $crit, $showClaimedTeam))
+            #end
+
+            #if($currentFilter != "SHOW ALL")
+                #set( $tempRecords = [] )
+                #foreach($record in $filteredSalesRecords)
+                    #if( $currentFilter == $record.type )
+                        #if( $tempRecords.add($record) )#end
+                    #end
+                #end
+
+                #set( $filteredSalesRecords = $tempRecords)
+            #end
+
+            #renderTabsHeader()
+            <div class="tagging-claim-tabs" id="claims-table">
+                #if($isPending)
+                    <div class="pending-claims" id="pending-claims">
+                    
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    #if ($columnsDisplayArr.contains("saleDate"))
+                                        <th>$saleDateLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("amount"))
+                                        <th>$amountLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("product"))
+                                        <th>$productLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("reward"))
+                                        <th>$rewardLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("expiryDate") && $expireIn > 0)
+                                        <th>$expiryDateLabel</th>
+                                    #end
+                                    #foreach($ex in $selectedExtraColumns)
+                                        <th>$ex.text</th>
+                                    #end
+                                    #foreach($ex in $itemsExtraFieldsColumns)
+                                        <th>$ex.text</th>
+                                    #end
+                                    <th></th>
+                                    #if($allowMultipleClaims)
+                                        <th><input type="checkbox" class="ck-all" title="Select all" /></th>
+                                    #end
+                                </tr>
+                            </thead>
+                            <tbody>
+                                #foreach($record in $filteredSalesRecords)
+                                    #set($dealDate = $formatter.toDate($record.periodFrom))
+                                    #set($expireDate = $formatter.addDays($dealDate, $expireIn))
+                                    #if($formatter.isNotEmpty($claimTypeField))
+                                        #set($claimType = $record.fieldValue($claimTypeField))
+                                    #end
+                                    #set($claimType = $formatter.cleanString($claimType))
+
+                                    #set($isUniqueValid = true)
+                                    #if($uniqueFieldCheck)
+                                        #set($uniqueFields = $app.call("getClaimItemUniqueFields", $page, $claimType))
+                                        #foreach($uField in $uniqueFields)
+                                            #set($isUniqueValid = $app.call("validateUniqueField", $uField, $record.fieldValue($uField), $claimType) )
+                                            #if(!$isUniqueValid)
+                                                #break
+                                            #end
+                                        #end
+                                    #end
+
+                                    #if($isUniqueValid)
+                                        <tr>
+                                            #if ($columnsDisplayArr.contains("saleDate"))
+                                                <td>$!dm.formatDateTime($dealDate)</td>
+                                            #end
+                                            #if ($columnsDisplayArr.contains("amount"))
+                                                <td>$record.amount</td>
+                                            #end
+                                            #if ($columnsDisplayArr.contains("product"))
+                                                <td>$!formatter.ifNull($record.findProductSku().title, $record.productSku)</td>
+                                            #end
+                                            #if ($columnsDisplayArr.contains("reward"))
+                                            <td>
+                                                #if ($claimedSeries)
+                                                #set( $matchedSources = $services.dataSeriesManager.findMatchingSources($claimedSeries, $record) )
+                                                #set ($pasArr = [])
+                                                #if( $matchedSources.size() > 0 )
+                                                    #foreach( $s in $matchedSources )
+                                                        $formatter.call($pasArr.add($s.title))
+                                                    #end
+                                                #end
+                                                $formatter.stringJoin($pasArr, "<br>")
+                                                #end
+                                            </td>
+                                            #end
+                                            #if ($columnsDisplayArr.contains("expiryDate") && $expireIn > 0)
+                                                <td>$!dm.formatDateTime($expireDate)</td>
+                                            #end
+                                            #foreach($ex in $selectedExtraColumns)
+                                            <td class="claim-tag-${ex.name}">$!record.fieldValue($ex.name)</td>
+                                            #end
+
+                                            #foreach($itemEx in $itemsExtraFieldsColumns)
+                                                <td>
+                                                    <div class="form-group">
+                                                        $itemEx.html('', 'item-ex-field', 'itemField-')
+                                                    </div>
+                                                </td>
+                                            #end
+
+                                            
+                                            <td><button class="btn btn-primary btn-xs tagClaim" data-salesdataid="$record.id" data-claim-type="$!claimType">Claim</button></td>
+                                            #if($allowMultipleClaims)
+                                                <td><input type="checkbox" class="select-claim" value="$record.id"  data-claim-type="$!claimType" /></th>
+                                            #end
+                                        </tr>
+                                    #end
+                                #end
+                            </tbody>
+                        </table>
+                    </div>
+                #elseif($currentTab == "post-claims")
+
+                    <div id="post-claims">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    #if($showClaimedTeam )
+                                        <th>$claimedByLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("claimId"))
+                                        <th>$claimIdLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("saleDate"))
+                                        <th>$saleDateLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("amount"))
+                                        <th>$amountLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("product"))
+                                        <th>$productLabel</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("reward"))
+                                        <th>$rewardLabel</th>
+                                    #end
+                                    #foreach($ex in $selectedExtraColumns)
+                                        <th>$ex.text</th>
+                                    #end
+                                    #foreach($ex in $itemsExtraFieldsColumns)
+                                        <th>$ex.text</th>
+                                    #end
+                                    #if ($columnsDisplayArr.contains("status"))
+                                        <th>$statusLabel</th>
+                                    #end
+                                </tr>
+                            </thead>
+                            <tbody>
+                                #set($claimedProfiles = $formatter.newMap())
+                                #set($um = $services.userManager)
+                                #foreach($record in $filteredSalesRecords)
+                                    #set( $dealDate = $formatter.toDate($record.periodFrom))
+                                    #set( $claimId = $record.field10 )
+                                    #set( $claim = $app.call("findClaim", $claimId).jsonObject )
+                                    
+                                    <tr>
+                                        #if($showClaimedTeam )
+                                            #set($claimedKey = $claim.enteredById + "-claimed")
+                                            #if(!$claimedBy.contain($claimedKey))
+                                                #set($claimedById = $formatter.toLong($claim.enteredById))
+                                                $formatter.call( $claimedProfiles.put($claimedKey, $um.findById($claimedById)) )
+                                            #end
+                                            <td>
+                                                #set($claimedProfile = $claimedProfiles.get($claimedKey))
+                                                #if($claimedProfile)
+                                                    $!claimedProfile.firstName
+                                                #end
+                                            </td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("claimId"))
+                                            <td>$claimId</td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("saleDate"))
+                                        <td>$!dm.formatDate($dealDate)</td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("amount"))
+                                        <td>$record.amount</td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("product"))
+                                        <td>$!formatter.ifNull($record.findProductSku().title, $record.productSku)</td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("reward"))
+                                        <td>
+                                            #if ($claimedSeries)
+                                                #set( $matchedSources = $services.dataSeriesManager.findMatchingSources($claimedSeries, $record) )
+                                                #set ($pasArr = [])
+                                                #if( $matchedSources.size() > 0 )
+                                                    #foreach( $source in $matchedSources )
+                                                        $formatter.call($pasArr.add($source.title))
+                                                    #end
+                                                #end
+                                                $formatter.stringJoin($pasArr, "<br>")
+                                            #end
+                                        </td>
+                                        #end
+                                        #foreach($ex in $selectedExtraColumns)
+                                            <td class="claim-tag-${ex.name}">$!record.fieldValue($ex.name)</td>
+                                        #end
+                                        #foreach($itemEx in $itemsExtraFieldsColumns)
+                                            <td>
+                                                #set( $claimedSalesRecordIds = $app.call("findClaimedSaleRecordIds", $claim) )
+                                                #set( $claimedSalesRecordId = $formatter.safeGet($claimedSalesRecordIds, 0) )
+                                                #if( $formatter.isNotEmpty($claimedSalesRecordId) )
+                                                    #set( $claimedRecord = $dsm.findRecord($claimedSalesRecordId) )
+                                                    #if( $formatter.isNotEmpty($claimedRecord) )
+                                                        $!claimedRecord.fieldValue($itemEx.name)
+                                                    #end
+                                                #end
+                                            </td>
+                                        #end
+                                        #if ($columnsDisplayArr.contains("status"))
+                                            <td>
+                                                #if($claim.status == 0 )
+                                                <i class="text-muted fa fa-circle"></i> Pending
+                                                #elseif( $claim.status == 1 )
+                                                <i class="text-success fa fa-check-circle"></i> Approved
+                                                #elseif( $claim.status == -1 )
+                                                <i class="text-danger fa fa-times-circle"></i> Declined
+                                                #end
+                                            </td>
+                                        #end
+                                    </tr>
+                                #end
+                            </tbody>
+                        </table>
+                    </div>
+                #end
+            </div>
+        #end
+    #else
+        #renderTabsHeader()
+        <div class="tab-content" id="claims-table">
+            <div class="tab-pane active" id="pending-claims">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            #if ($columnsDisplayArr.contains("saleDate"))
+                                <th>$claimIdLabel</th>
+                            #end
+                            #if ($columnsDisplayArr.contains("amount"))
+                                <th>$saleDateLabel</th>
+                            #end
+                            #if ($columnsDisplayArr.contains("product"))
+                                <th>$productLabel</th>
+                            #end
+                            #if ($columnsDisplayArr.contains("reward"))
+                                <th>$rewardLabel</th>
+                            #end
+                            #if ($columnsDisplayArr.contains("expiryDate"))
+                                <th>$expiryDateLabel</th>
+                            #end
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        #foreach ($number in [1..3])
+                            <tr>
+                                #if ($columnsDisplayArr.contains("saleDate"))
+                                    <td>21/12/2021</td>
+                                #end
+                                #if ($columnsDisplayArr.contains("amount"))
+                                    <td>100</td>
+                                #end
+                                #if ($columnsDisplayArr.contains("product"))
+                                    <td>Macbook</td>
+                                #end
+                                #if ($columnsDisplayArr.contains("reward"))
+                                    <td>Reward-01</td>
+                                #end
+                                #if ($columnsDisplayArr.contains("expiryDate"))
+                                    <td>01/03/2019</td>
+                                #end
+                                <td><button class="btn btn-primary">Claim</button></td>
+                            </tr>
+                        #end
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="post-claims">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>$claimIdLabel</th>
+                            <th>$saleDateLabel</th>
+                            <th>$amountLabel</th>
+                            <th>$productLabel</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123456</td>
+                            <td>01/01/2019</td>
+                            <td>1</td>
+                            <td>Team 1</td>
+                            <td>NEW</td>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>01/01/2019</td>
+                            <td>3</td>
+                            <td>Team 2</td>
+                            <td>Approved</td>
+                        </tr>
+                        <tr>
+                            <td>123456</td>
+                            <td>01/01/2019</td>
+                            <td>2</td>
+                            <td>Team 3</td>
+                            <td>Declined</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    #end
+</div>
+
+#macro(renderTabsHeader)
+    <div class="claim-tags-nav">
+        <ul class="nav nav-tabs">
+            <li class="$formatter.ifTrue($isPending, 'active', '')" ><a href="?tab=pending-claims">Pending Claims</a></li>
+            <li class="$formatter.ifTrue($isPending, '', 'active')"><a href="?tab=post-claims">Past Claims</a></li>
+            #if($allowMultipleClaims)
+                <li class="bulk-claim-control">
+                    <button class="btn btn-primary btn-xs bulk-claim" title="Claim selected items">$multipleClaimsButton</button>
+                </li>
+            #end
+        </ul>
+    </div>
+#end

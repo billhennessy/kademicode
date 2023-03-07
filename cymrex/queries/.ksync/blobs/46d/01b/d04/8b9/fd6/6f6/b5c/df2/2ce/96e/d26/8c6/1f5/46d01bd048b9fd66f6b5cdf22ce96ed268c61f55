@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<div class="container-bg background-for">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div data-type="component-membersTable" data-columns="firstName,surName,orgName,parentOrg,createdDate" data-group="participants" data-show-cust-link="true" data-height="600">
+								<div data-dynamic-href="_components/membersTable" id="keditor-ui-16331145976282356742186"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

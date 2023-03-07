@@ -1,0 +1,18 @@
+<points-rules>
+    <ruleTypes>
+        <points-rule>
+            <id>dsrRule</id>
+            <title>DSR Rule</title>
+            <fields/>
+            <processFn>doProcessDSR</processFn>
+            <includeFn>isIncludedDSR</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>managerRule</id>
+            <title>Manager Rule</title>
+            <fields/>
+            <processFn>doProcessManager</processFn>
+            <includeFn>isIncludedManager</includeFn>
+        </points-rule>
+    </ruleTypes>
+</points-rules>

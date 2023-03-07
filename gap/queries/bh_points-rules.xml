@@ -1,0 +1,29 @@
+<points-rules>
+    <ruleTypes>
+      <points-rule>
+        <id>ruleGapApplications</id>
+        <title>Rule Gap Application</title>
+        <fields>
+          <field>
+            <name>brandId</name>
+            <required>true</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>Brand ID</title>
+            <options />
+          </field>
+          <field>
+            <name>points</name>
+            <required>true</required>
+            <aggregate>false</aggregate>
+            <indexed>false</indexed>
+            <fileUpload>false</fileUpload>
+            <title>Points Per Application</title>
+            <options />
+          </field>
+        </fields>
+        <processFn>doProcessGapPoints</processFn>
+        <includeFn>isIncludedGapPoints</includeFn>
+      </points-rule>
+  </points-rules>

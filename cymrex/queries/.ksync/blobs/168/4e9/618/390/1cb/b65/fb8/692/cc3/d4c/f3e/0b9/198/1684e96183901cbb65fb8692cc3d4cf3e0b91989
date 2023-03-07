@@ -1,0 +1,62 @@
+<controllers>
+  <source>pointFees.js</source>
+  <metrics>
+    <metric id="bathtub-count" icon="fa-dropbox" decimals="0">
+      <title>Bathtub Count</title>
+      <metricTypeId>constant-value</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <params>
+        <entry>
+          <string>contantValue</string>
+          <string>bathtub-count</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="total-points" icon="empty" decimals="0">
+      <title>Total Points</title>
+      <metricTypeId>points-earned</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>pointsBucket</string>
+          <string>cymrex-rewards-points</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="total-sales" icon="empty" decimals="0">
+      <title>Total Sales</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>actual-sales</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="test-learning" icon="empty" decimals="0">
+      <title>Test Learning</title>
+      <metricTypeId>learning-count</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+    </metric>
+    <metric id="test-complete" icon="empty" decimals="0">
+      <title>Test Complete</title>
+      <metricTypeId>complete-count</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+    </metric>
+    <metric id="test-count-2" icon="empty" decimals="0">
+      <title>Test Count 2</title>
+      <metricTypeId>modulesCompleted</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <entityName>elizabeth</entityName>
+    </metric>
+  </metrics>
+</controllers>

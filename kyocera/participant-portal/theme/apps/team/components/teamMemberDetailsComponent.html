@@ -1,0 +1,68 @@
+
+
+<div id="pjax-container">
+    <div class="panel panel-default panel-kcrm panel-header-info">
+        <div class="panel-body">
+            <div class="leadSummary">
+                <form action="$page.href" method="post" id="teamMemberDetails">
+                    #set( $profile = $page.attributes.member )
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label trans-lookup" for="first-name">First name</label>
+                                <input type="text" name="firstName" id="firstName" class="form-control trans-lookup" placeholder="First name" value="$!profile.firstName" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label trans-lookup" for="last-name">Last name</label>
+                                <input type="text" name="surName" id="surName" class="form-control trans-lookup" placeholder="Last name" value="$!profile.surName" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label trans-lookup" for="preferred-name">Preferred name</label>
+                                <input type="text" name="nickName" id="nickname" class="form-control trans-lookup" placeholder="Preferred name" value="$!profile.nickName" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label trans-lookup" for="phone-number">Phone number</label>
+                                <input type="text" name="phone" id="phone" class="form-control trans-lookup" placeholder="Mobile number" value="$!profile.phone" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label trans-lookup" for="email-address">Email address</label>
+                                <input type="text" name="email" id="email" class="form-control trans-lookup" placeholder="Email address" value="$!profile.email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        #set($fields = $services.userManager.extraFields($profile.thisProfile))
+                        #foreach($field in $fields.keySet())
+                        #if ($extraFields && $extraFields.contains($field.name))
+                        #else
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">$field.text</label>
+                                $field.html( $fields[$field], "", "" )
+                            </div>
+                        </div>
+                        #end
+                        #end
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <button type="submit" class="btn btn-info trans-lookup" data-transcode="update">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

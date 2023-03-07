@@ -1,0 +1,12 @@
+
+function hardcodedDate(){
+  return '06-15-2022';
+}
+
+function springOrderDate(){
+    return '03-22-2022';
+}
+
+function defaultDataSerie(){
+  return 'product-sales-data' //'ao-integration-tests-data-series';
+}

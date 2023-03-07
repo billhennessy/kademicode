@@ -1,0 +1,126 @@
+<points-rules>
+    <ruleTypes>
+        <points-rule>
+            <id>weekRule</id>
+            <title>Week Rule</title>
+            <fields>
+                <field>
+                    <name>start</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Start Day of Month</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>end</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>End Day of Month</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>points</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Points</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>minOrder</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Minimum Order Size</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessWeek</processFn>
+            <includeFn>isIncludedWeek</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>onlineOrdersRule</id>
+            <title>Online Orders Rule</title>
+            <fields>
+                <field>
+                    <name>sourceCode</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Source Code</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>multiplier</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Multiplier</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>minAmount</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Minimum Amount</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessOnline</processFn>
+            <includeFn>isIncludedOnline</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>orderSizeRule</id>
+            <title>Order Size Rule</title>
+            <fields>
+                <field>
+                    <name>minAmount</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Minimum Amount</title>
+                    <options/>
+                </field>
+                <field>
+                    <name>bonusAmount</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Bonus Amount (points)</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessSize</processFn>
+            <includeFn>isIncludedProcessSize</includeFn>
+        </points-rule>
+        <points-rule>
+            <id>testGap</id>
+            <title>Test Gap</title>
+            <fields>
+                <field>
+                     <name>Group</name>
+                    <required>true</required>
+                    <aggregate>false</aggregate>
+                    <indexed>false</indexed>
+                    <fileUpload>false</fileUpload>
+                    <title>Group Code</title>
+                    <options/>
+                </field>
+            </fields>
+            <processFn>doProcessGroup</processFn>
+            <includeFn>isIncludedGroup</includeFn>
+        </points-rule>
+    </ruleTypes>
+</points-rules>

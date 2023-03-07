@@ -1,0 +1,49 @@
+<fieldMapping>
+  <name>warranty-registrations</name>
+  <title>Warranty Registrations</title>
+  <mappings class="linked-hash-map">
+    <entry>
+      <string>periodFrom</string>
+      <list>
+        <int>2</int>
+      </list>
+    </entry>
+    <entry>
+      <string></string>
+      <list>
+        <int>3</int>
+      </list>
+    </entry>
+    <entry>
+      <string>attributedTo</string>
+      <list>
+        <int>0</int>
+      </list>
+    </entry>
+    <entry>
+      <string>amount</string>
+      <list>
+        <int>1</int>
+      </list>
+    </entry>
+  </mappings>
+  <options>
+    <entry>
+      <string>salesDataSeries</string>
+      <string>warranty-registrations</string>
+    </entry>
+    <entry>
+      <string>startRow</string>
+      <string>1</string>
+    </entry>
+    <entry>
+      <string>dateFormat</string>
+      <string>MM/dd/yyyy</string>
+    </entry>
+    <entry>
+      <string>taskSize</string>
+      <string>500</string>
+    </entry>
+  </options>
+  <actions/>
+</fieldMapping>

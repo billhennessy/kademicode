@@ -1,0 +1,85 @@
+// Import commong utils file
+load('/integration/ao-common.js');
+
+/*
+File Columns:
+   
+    A	Business Entity ID
+    B	Business Entity Name
+    C	Equipment Line
+    D	Equipment Application
+    E	Owner Type
+    F	Serial Number
+    G	True Model / Model( PH3)
+    H	Registration Date
+    I	Registration Type
+
+*/
+
+function prepare() {
+    pipeline.addInfo('PREPARE', 'todo ... add information here');
+    var defaultDataSerieName = 'warranty-registrations';
+    pipeline.addInfo('PREPARE', 'using dataseries = ' + defaultDataSerieName);
+    pipeline.attributes.dataSeries = services.dataSeriesManager.dataSeries(defaultDataSerieName);  
+  }
+  
+  function finishImport() {
+    pipeline.addInfo('FINISHED', 'todo ... add info here');
+  }
+
+function processRow(attributedTo, b, c, d, e, serialNumber, g, saleDate, registrationType) {
+
+    var dataSeries = services.dataSeriesManager.dataSeries('warranty-registrations');
+
+    // Cleanup data
+    //transactionId = formatter.toString(transactionId);
+    attributedTo = formatter.toString(attributedTo);
+    serialNumber = formatter.toString(serialNumber);
+    saleDate = formatter.parseDate(saleDate);
+    registrationType = formatter.toString(registrationType);
+    amount = formatter.toInteger(1);
+   
+    log.info("DO RegistrationImporter.js: attributedTo={}, serialNumber={}, amount={}", attributedTo, serialNumber, amount);
+    
+
+   // Find an existing Record
+    var salesRecord = findSalesRecord(dataSeries, amount, attributedTo, serialNumber);
+
+    if (salesRecord) {
+        // Found record, so we reset points allocation
+        resetSalesRecordPointsAllocation(salesRecord);
+
+        // Then delete record
+        deleteSaleRecord(salesRecord);
+    }
+
+    // Locate the Profile to attribute the sale to
+    // var attributedToProfile = services.userManager.findByEmail(attributedTo);
+    var attributedToProfile = services.organisationManager.findOrg(attributedTo);
+
+    if (formatter.isNull(attributedToProfile)) {
+        // Log an error if the profile is not found
+        pipeline.addFailure('PROFILE-NOT-FOUND', 'Unable to locate a profile with WarrantyID: ' + attributedTo);
+        return;
+    }
+
+    // Create a new record
+    var db = services.dataSeriesManager.newDataPoint();
+
+    db.series = pipeline.attributes.dataSeries;
+    db.amount = amount;
+    db.periodFrom = saleDate;
+    db.attributedTo = attributedToProfile;
+    db.productSku = productsku;
+
+    // Add extra fields
+    var fields = formatter.newMap();
+  
+    fields.put('serialNumber', serialNumber);
+    fields.put('registration-type', registrationType);
+    db.fields = fields;
+
+    // Process the new record
+    var newRecord = services.dataSeriesManager.insertDataPoint(db);
+    pipeline.addInfo('CREATED', 'Create a new sales record with id: ' + newRecord.id);
+}

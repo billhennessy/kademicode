@@ -1,0 +1,98 @@
+controllerMappings
+        .adminController()
+        .path("/staffPointsApp/")
+        .enabled(true)
+        .defaultView(views.templateView("staffPoints-app/staffPointSettings.html"))
+        .addMethod("POST", "handleStaffPoints")
+        .build();
+        
+controllerMappings
+        .websiteController()
+        .path("/staffPoints/")
+        .enabled(true)
+        .defaultView(views.templateView("staffPoints-app/staffPointsComponent.html"))
+        .build();    
+        
+        
+var newCompanyAction = controllerMappings.newTableActionHandlerBuilder()
+    .id('newCompanyImportActions')
+    .title('New company import actions')
+    .description('Create new company (orgs)')
+    .transformRowFn('doTransformRow')
+    .processRowFn('doProcessRow');
+newCompanyAction.field("orgIdPrefix", "Org ID Prefix", true);
+newCompanyAction.field("defaultOrgType", "Default Org Type", true).optionsFn(function () {
+    var list = formatter.newArrayList();
+    formatter.foreach(services.organisationManager.allOrgTypes, function(orgType){
+        list.add(orgType.name);
+    });
+    
+    return list;
+});
+newCompanyAction.build();        
+        
+function doTransformRow(row, params, rowContext, importContext){
+    var orgIdPrefix = params.orgIdPrefix;
+    if ( formatter.isNotEmpty(orgIdPrefix) ) {
+        var orgId = formatter.safeGet(row, 0);
+        if ( formatter.isNotEmpty(orgId) ) {
+            orgId = orgIdPrefix + orgId;
+        }
+        row.set(0, formatter.cleanString(orgId)); //Modify the first element
+    }
+    
+    var defaultOrgType = params.defaultOrgType;
+    if ( formatter.isNotEmpty(defaultOrgType) ) {
+        row.add(defaultOrgType); //Add the org type to the end of row data (Index = 3)
+    }
+    
+    return row;
+}
+function doProcessRow(row, params, rowContext, importContext){
+    var fieldMappings = rowContext.fieldMappings;
+
+    if (fieldMappings && formatter.isNotEmpty(fieldMappings)) {
+        var typeMap = formatter.newArrayList();
+        typeMap.add(3); //The index of the org type in row data
+        fieldMappings.put('orgTypeName', typeMap);
+    }
+}
+
+/* Order Header Transform */
+var orderHeaderAmount = controllerMappings.newTableActionHandlerBuilder()
+    .id('orderHeaderAmount')
+    .title('Order Header Import Actions')
+    .description('Determine amount for order header records')
+    .transformRowFn('doTransformRow')
+    .processRowFn('doProcessRow');
+orderHeaderAmount.field("amount", "Amount", true);
+
+orderHeaderAmount.build();        
+        
+function doTransformRow(row, params, rowContext, importContext){
+   // var orgIdPrefix = params.orgIdPrefix;
+    if ( formatter.isNotEmpty(orgIdPrefix) ) {
+        var orgId = formatter.safeGet(row, 0);
+        if ( formatter.isNotEmpty(orgId) ) {
+            orgId = orgIdPrefix + orgId;
+        }
+        row.set(0, formatter.cleanString(orgId)); //Modify the first element
+    }
+    
+    var defaultOrgType = params.defaultOrgType;
+    if ( formatter.isNotEmpty(defaultOrgType) ) {
+        row.add(defaultOrgType); //Add the org type to the end of row data (Index = 3)
+    }
+    
+    return row;
+}
+
+function doProcessRow(row, params, rowContext, importContext){
+    var fieldMappings = rowContext.fieldMappings;
+
+    if (fieldMappings && formatter.isNotEmpty(fieldMappings)) {
+        var typeMap = formatter.newArrayList();
+        typeMap.add(3); //The index of the org type in row data
+        fieldMappings.put('orgTypeName', typeMap);
+    }
+}

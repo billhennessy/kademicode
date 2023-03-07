@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Spark Sales 101</title>
+		<link rel="template" href="learner/quizPage" />
+		<script type="data/parameter" title="order" >2</script>
+		<script type="data/parameter" title="maxAttempts" ></script>
+		<script type="data/parameter" title="passMarkPerc" ></script>
+		<script type="data/parameter" title="batchMode" ></script>
+		<script type="data/parameter" title="batchSize" ></script>
+		<script type="data/parameter" title="answerf273852" >621517,831681</script>
+	</head>
+	<body>
+		<ol class="quiz">
+			<li id="f273852" class="answerf273852">
+				<h3>Select Answer A and Answer C below.</h3>
+				<p>[Enter help text here]</p>
+				<ol class="multi-answer" id="answers_f273852">
+					<li><input type="checkbox" id="answer_621517" value="621517" name="answerf273852"><label for="answer_621517">Answer A</label></li>
+					<li><input type="checkbox" id="answer_513868" value="513868" name="answerf273852"><label for="answer_513868">Answer B</label></li>
+					<li><input type="checkbox" id="answer_831681" value="831681" name="answerf273852"><label for="answer_831681">Answer C</label></li>
+					<li><input type="checkbox" id="answer_410352" value="410352" name="answerf273852"><label for="answer_410352">Answer D</label></li>
+				</ol>
+			</li>
+		</ol>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+{
+    "version": 2,
+    "items": [
+        {
+            "id": "menuRoot",
+            "text": "Root Menu Item",
+            "href": "",
+            "ordering": 0,
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menuDashboard",
+            "text": "Program Home / Dashboard",
+            "href": "/dashboard",
+            "ordering": 0,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "fa fa-dashboard",
+            "visible": ""
+        },
+        {
+            "id": "menuMyLearning",
+            "text": "My Learning",
+            "href": "/myLearning",
+            "ordering": 1,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "fa fa-graduation-cap",
+            "visible": ""
+        },
+        {
+            "id": "menuMyRewards",
+            "text": "My Rewards",
+            "href": "/rewards",
+            "ordering": 2,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "fa fa-gift",
+            "visible": "",
+            "orgTypeVisible": "",
+            "orgTypeHidden": ""
+        },
+        {
+            "id": "menuNotifications",
+            "text": "Notifications",
+            "href": "/inbox",
+            "ordering": 3,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "fa fa-inbox",
+            "visible": ""
+        },
+        {
+            "id": "menuSurveyApp",
+            "text": "Survey",
+            "href": "/ksurvey",
+            "ordering": 4,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "",
+            "visible": "",
+            "orgTypeVisible": "",
+            "orgTypeHidden": ""
+        }
+    ]
+}

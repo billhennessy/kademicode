@@ -1,0 +1,19 @@
+<div class="container-bg background-for horizontal-list" data-shadow-color="#ffffff" style="margin-top: 16px; margin-bottom: 24px;">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+						<div class="col-sm-6 ui-resizable" data-type="container-content"><div class="keditor-component-text-content" data-type="component-text"><div class="keditor-component-text-content-inner clearfix"><div>
+<ul>
+	<li><a href="#promotions">Promotions</a></li>
+	<li><a href="#claim">Claims</a></li>
+	<li><a href="#learn">Learning</a></li>
+	<li><a href="#eligible">Eligible Products</a></li>
+</ul>
+</div>
+</div></div></div>
+						<div class="col-sm-3 ui-resizable" data-type="container-content"></div>
+					</div>
+				</div>
+			</div>
+		</div>

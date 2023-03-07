@@ -1,0 +1,49 @@
+<controllers>
+  <source>tutorial-email-summary.js</source>
+  <source>WinnersList_uidisplay.js</source>
+  <source>custom-allocation-rules.js</source>
+  <source>confirmed-report.js</source>
+  <metrics>
+    <metric id="total-population" decimals="0">
+      <title>Total Population</title>
+      <metricTypeId>constant-value</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>contantValue</string>
+          <string>total-population</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="registrations" decimals="0">
+      <title>Registrations</title>
+      <metricTypeId>signups</metricTypeId>
+      <entitySelection>account</entitySelection>
+    </metric>
+    <metric id="pre-associates-count" decimals="0">
+      <title>Pre-Associates Count</title>
+      <metricTypeId>pre-associates-count</metricTypeId>
+      <entitySelection>account</entitySelection>
+    </metric>
+    <metric id="associates-count" decimals="0">
+      <title>Associates Count</title>
+      <metricTypeId>associates-count</metricTypeId>
+      <entitySelection>account</entitySelection>
+    </metric>
+    <metric id="registration-percentage" decimals="4">
+      <title>Registration Percentage</title>
+      <metricTypeId>my-metric-perc-type</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>divisorMetric</string>
+          <string>pre-associates-count</string>
+        </entry>
+        <entry>
+          <string>numeratorMetric</string>
+          <string>associates-count</string>
+        </entry>
+      </params>
+    </metric>
+  </metrics>
+</controllers>

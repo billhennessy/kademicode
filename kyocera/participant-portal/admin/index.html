@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Reports</title>
+		<link rel="template" href="theme/page" />
+		<script type="data/parameter" title="itemType" ></script>
+		<script type="data/parameter" title="category" ></script>
+		<script type="data/parameter" title="tags" ></script>
+		<script type="data/parameter" title="pageBgColor" ></script>
+		<script type="data/parameter" title="pageBgImage" ></script>
+		<script type="data/parameter" title="pageBgSize" >auto</script>
+		<script type="data/parameter" title="pageBgRepeat" >no-repeat</script>
+		<script type="data/parameter" title="pageBgPosition" >0% 0%</script>
+	</head>
+	<body>
+		<div class="container-bg background-for" data-shadow-color="#ffffff">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="padding-top: 15px; padding-bottom: 15px;">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<p>Date Range</p>
+									</div>
+								</div>
+							</div>
+							<div data-picker-size="btn-md" data-picker-align="left" data-picker-color="btn-primary" data-picker-class="" data-default-range="3 mo" data-type="component-dateRange">
+								<div data-dynamic-href="_components/dateRange" id="keditor-ui-16620639594487960387064"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for" data-shadow-color="#ffffff" style="background-color: rgb(237, 239, 242);">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="padding-top: 60px; padding-bottom: 30px;">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<p><strong>Welcome,&nbsp;*|currentUser/firstName|*</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="container-bg background-for">
+								<div class="container-layout">
+									<div class="container-content-wrapper">
+										<div class="row">
+											<div class="col-sm-4 ui-resizable" data-type="container-content">
+												<div data-icon="fa fa-users" data-type="component-recentActiveUsers">
+													<div data-dynamic-href="_components/recentActiveUsers" id="keditor-ui-16620626298369658706928"></div>
+												</div>
+											</div>
+											<div class="col-sm-4 ui-resizable" data-type="container-content">
+												<div data-query="Participants" data-query-type="query" data-icon="fa fa-user" data-agg="COUNT_userId" data-label="Participant Count" data-type="component-singleValue">
+													<div data-dynamic-href="_components/singleValue" id="keditor-ui-16620630840416765969720"></div>
+												</div>
+											</div>
+											<div class="col-sm-4 ui-resizable" data-type="container-content">
+												<div data-type="component-claimApprovedClaim">
+													<div data-dynamic-href="_components/claimApprovedClaim" id="keditor-ui-16637042737092741213813"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for" data-shadow-color="#ffffff">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="padding-top: 30px; padding-bottom: 30px;">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" style="padding-top: 10px; padding-bottom: 10px;" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<h3>Sales Data</h3>
+									</div>
+								</div>
+							</div>
+							<div data-href="/sales/sales-claims" data-visualisation="dateHistogram" data-height="200" data-aggregation="sum" data-group-by="" data-type="component-salesDataVis">
+								<div data-dynamic-href="_components/salesDataVis" id="keditor-ui-16624935388782647075306"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for" data-shadow-color="#ffffff" style="background-color: rgb(237, 239, 242);">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="padding-top: 30px; padding-bottom: 30px;">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div class="keditor-component-text-content" style="padding-top: 10px; padding-bottom: 10px;" data-type="component-text">
+								<div class="keditor-component-text-content-inner clearfix">
+									<div>
+										<h3>Learning Leaderboard</h3>
+									</div>
+								</div>
+							</div>
+							<div data-org-type="dealership-dsrs" data-type="component-learningLeaderboard">
+								<div data-dynamic-href="_components/learningLeaderboard" id="keditor-ui-16625583293836335277145"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-bg background-for" data-shadow-color="#ffffff" style="border-color: rgb(237, 239, 242);">
+			<div class="container-layout container">
+				<div class="container-content-wrapper" style="padding-top: 30px; padding-bottom: 30px;">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div data-query="Participants-TERMS_groupNames" data-title="Participants by Group" data-items-per-page="25" data-height="200" data-query-type="queryTable" data-csv-filename="participants.csv" data-type="component-queryTable">
+								<div data-dynamic-href="_components/queryTable" id="keditor-ui-16624928940743445370418"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

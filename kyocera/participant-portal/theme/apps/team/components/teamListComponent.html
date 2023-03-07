@@ -1,0 +1,297 @@
+#if ($page)
+    #set ($um = $services.userManager)
+    #set ($tm = $services.teamManager)
+    #set ($teamOrgType = $tm.getTeamType())
+    #set ($userTeams = $tm.teamsForUser($um.currentProfile, $teamOrgType))
+    
+    #if ($userResource.hasRole("SalesManager") || $userResource.hasRole("User Administrator") || $userResource.hasRole("Administrator"))
+        #set ($isAdmin = true)
+    #end
+
+    #renderTeamList()
+    
+    <div class="modal fade" id="modal-add-member" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title trans-lookup"  data-transcode="add-a-new-member">Add a new member</h4>
+                </div>
+                <form method="post" action="." class="form-horizontal">
+                    <input type="hidden" name="newMember" value="newMember" />
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 trans-lookup" for="newUserNickName">Nick name</label>
+                            <div class="col-md-9">
+                                <input type="text" name="nickName" id="newUserNickName" class="form-control trans-lookup" placeholder="Nick name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 trans-lookup" for="newUserFirstName">Name</label>
+                            <div class="col-md-4">
+                                <input type="text" name="firstName" id="newUserFirstName" class="form-control trans-lookup" placeholder="First name" />
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="surName" id="newUserSurName" class="form-control trans-lookup" placeholder="Surname" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 trans-lookup" for="newUserEmail">Email</label>
+                            <div class="col-md-9">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="newUserEmail" class="form-control required trans-lookup" placeholder="Email" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="">Team</label>
+                            <input type="hidden" name="teamId" data-team-orgtype="$!applications.team.selectedOrgTypeName">
+                            <div class="col-md-9">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <select id="teamFinder" class="form-control #if ($page)selectpicker #end required trans-lookup" data-live-search="true" data-live-search-normalize="true">
+                                            #if ($page)
+                                                #foreach ($team in $userTeams)
+                                                    <option value="$team.id">$team.title</option>
+                                                #end
+                                            #end
+                                        </select>
+                                        <!-- <input data-team-orgtype="$!applications.team.selectedOrgTypeName" type="text" id="teamFinder" class="form-control required trans-lookup" placeholder="Type to find team" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 trans-lookup" for="group">Roles</label>
+                            <div class="col-md-9">
+                                <div class="col-sm-12">
+                                    #if($page.selectedGroups.size() == 0)
+                                    <div class="alert alert-danger trans-lookup" data-transcode=">no-team-group-configured">No team groups have been configured, Please configure Teams groups in the admin console.</div>
+                                    #else
+                                        <div class="row">
+                                        #foreach($g in $page.selectedGroups)
+                                        <div class="col-sm-6">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="group" value="$g.id" />
+                                                    $formatter.ifNull($g.title, $g.name)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        #end
+                                        </div>
+                                    #end
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-default trans-lookup" data-transcode="close" data-dismiss="modal" type="button">Close</button>
+
+                        <button class="btn btn-primary trans-lookup" data-transcode="create" type="submit">Create</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="modal-add-team" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title trans-lookup"  data-transcode="add-a-new-member">Add a new team</h4>
+                </div>
+                <form method="post" action="." class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 trans-lookup" for="newUserEmail">Team name</label>
+                            <div class="col-md-9">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" name="newTeam" id="newTeam" class="form-control required trans-lookup" placeholder="Team name" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-sm btn-default trans-lookup" data-transcode="close" data-dismiss="modal" type="button">Close</button>
+
+                            <button class="btn btn-primary trans-lookup" data-transcode="create" type="submit">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+#else
+    #renderTeamList()
+#end
+
+#macro( renderTeamList $leadId $journeyTitle $leadDesc $cancelled $closedDate $stageName $createDate $dealAmount $lead )
+    <div class="teams-list-container" id="teams-list-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group m-mgb-5">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" >
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    <input type="text" id="team-members-query" class="form-control filterField trans-lookup" placeholder="Search for team members here" value="" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                #if ($page)
+                    #if ($isAdmin)
+                        <button type="button" class="btn btn-info m-mgb-5" data-toggle="modal" data-target="#modal-add-member"><i class="fa fa-user-plus"></i> <span class="trans-lookup" data-transcode="member">Member</span></button>
+                    #end
+
+                    #if( $page.canCreateTeam )
+                        <button type="button" class="btn btn-info m-mgb-5" data-toggle="modal" data-target="#modal-add-team"><i class="fa fa-plus"></i> <span class="trans-lookup" data-transcode="team">Team</span></button>
+                    #end
+                #else
+                    <button type="button" class="btn btn-info m-mgb-5"><i class="fa fa-user-plus"></i> <span class="trans-lookup" data-transcode="member">Member</span></button>
+                    <button type="button" class="btn btn-info m-mgb-5"><i class="fa fa-plus"></i> <span class="trans-lookup" data-transcode="team">Team</span></button>
+                #end
+            </div>
+            <div class="col-md-5">
+                <div class="row col-md-12">
+                    <div class="col-sm-5">
+                        <select name="role" id="rolesFilter" class="form-control #if ($page)selectpicker #end m-mgb-5" data-live-search="true" data-live-search-normalize="true" data-style="btn-primary">
+                            <option value="">[<span class="trans-lookup" data-transcode="all-roles">All Roles</span>]</option>
+                            #if ($page)
+                                #foreach ($role in $page.selectedGroups)
+                                <option #if ($params.role == $role.id) selected #end value="$role.id">$role.title</option>
+                                #end
+                            #end
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                        <select name="team" id="teamFilters" class="form-control #if ($page)selectpicker #end m-mgb-5" data-live-search="true" data-live-search-normalize="true" data-style="btn-primary">
+                            <option value="">[<span class="trans-lookup" data-transcode="all-team">All Teams</span>]</option>
+                            #if ($page)
+                                #foreach ($team in $userTeams)
+                                <option #if ($params.team == $team.id) selected #end value="$team.id">$team.title</option>
+                                #end
+                            #end
+                        </select>
+                    </div>
+                    <div class="col-sm-2"/>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table id="teamTable" class="table table-striped table-hover kcrm-table dataTable">
+                    <thead>
+                    <tr>
+                        <th class="trans-lookup" data-transcode="name">Name</th>
+                        <th class="trans-lookup" data-transcode="email">Email</th>
+                        <th class="trans-lookup" data-transcode="phone">Phone</th>
+                        <th class="trans-lookup" data-transcode="team">Team</th>
+                        <th width="10"><button class="btn btn-danger btn-teams-delete m-mgb-5"><i class="fa fa-trash"></i></button></th>
+                    </tr>
+                    </thead>
+                    <tbody id="searchResults">
+                    #if ($page)
+                        #set( $fc = $formatter.newFormContext())
+                        #set( $pageSize = $fc.integerParam('pageSize'))
+                        #set( $start = $fc.integerParam('startPos'))
+                        #set( $team = $fc.integerParam('team'))
+                        #set( $role = $fc.integerParam('role'))
+
+                        #if ( $formatter.isNull( $pageSize ))
+                            #set( $pageSize = 100)
+                        #end
+
+                        #if ( $formatter.isNull( $start ))
+                            #set( $start = 0)
+                        #end
+
+                        #set( $queryTable = $services.queryManager.getTable("teamMembersTable") )
+                        #set( $resp = $queryTable.getRows($start, $pageSize) )
+                        #set( $paginator = $formatter.paginator().skipToStart(false).pageSize($pageSize).totalRecords($resp.numRows))
+
+                        #set( $records = $paginator.records($resp.rows))
+
+                        #if( $records.isEmpty() )
+                            <tr class="text-center">
+                                <td colspan="6" class="trans-lookup" data-transcode="no-team-members-found">No Team members found...</td>
+                            </tr>
+                        #else
+                            #foreach($row in $records)
+                                #teamListRecord($row $isAdmin)
+                            #end
+                        #end
+                        <tr>
+                            <td colspan="5" style="padding-left: 10">
+                                $!paginator.html("teamsPag")
+                            </td>
+                        </tr>
+                    #else
+                        #foreach($row in [1..4])
+                            #set ($row = ['', 'John', 'Doe', 'John Doe', 'Team test', 'johndoe@email.com', '38473852'])
+                            #teamListRecord($row $isAdmin)
+                        #end
+                    #end
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+#end
+
+#macro (teamListRecord $row )
+    <tr>
+        <td>
+            #if ($isAdmin || $userResource.hasRole("User Viewer")) 
+                <a href="$formatter.safeGet($row, 0)">
+                    #if( $formatter.isNotEmpty($formatter.safeGet($row, 2)))
+                        $!formatter.safeGet($row, 2)  $!formatter.safeGet($row, 3)
+                    #elseif( $formatter.isNotEmpty($formatter.safeGet($row, 4)))
+                        $!formatter.safeGet($row, 4)
+                    #else
+                        $!formatter.safeGet($row, 1)
+                    #end
+                </a>
+            #else
+                #if( $formatter.isNotEmpty($formatter.safeGet($row, 2)))
+                        $!formatter.safeGet($row, 2)  $!formatter.safeGet($row, 3)
+                #elseif( $formatter.isNotEmpty($formatter.safeGet($row, 4)))
+                    $!formatter.safeGet($row, 4)
+                #else
+                    $!formatter.safeGet($row, 1)
+                #end
+            #end
+        </td>
+        <td>
+            $!formatter.safeGet($row, 5)
+        </td>
+        <td>
+            $!formatter.safeGet($row, 6)
+        </td>
+        <td>
+            #if ($isAdmin)
+                #set ($ur = $um.findById($formatter.toLong($formatter.safeGet($row, 0))))
+                #if ($ur)
+                    #set ($mbs = $um.membershipList($ur).filterByOrgType($applications.team.selectedOrgTypeName))
+                    #foreach ($bean in $mbs)
+                    <span class="label label-success">$bean.groupTitle<span class="trans-lookup" data-transcode="in"> in</span> $bean.org.title</span>
+                    #end
+                #end
+            #else
+                $!formatter.safeGet($row, 4)
+            #end
+        </td>
+        <td align="center"><input type="checkbox" name="memberId" value="$formatter.safeGet($row, 0)"></td>
+    </tr>
+#end

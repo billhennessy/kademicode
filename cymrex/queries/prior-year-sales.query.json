@@ -1,0 +1,576 @@
+{
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "dataseries"
+  ],
+  "queryBuilder": {
+    "aggregations": [
+      "\"TERMS_profileName\" : {\"terms\" : {\"field\": \"profileName\", \"size\": 10}}",
+      "\"SUM_amount\" : {\"sum\" : {\"field\": \"amount\"}}"
+    ],
+    "aggregationsSource": [
+      {
+        "aggName": "TERMS_profileName",
+        "aggType": "TERMS",
+        "aggField": "profileName",
+        "aggSize": "10"
+      },
+      {
+        "aggName": "SUM_amount",
+        "aggType": "SUM",
+        "aggField": "amount",
+        "aggSize": "0"
+      }
+    ],
+    "fields": [
+      "profileName",
+      "amount"
+    ],
+    "filters": [
+      {
+        "id": "allocs.pasId",
+        "indexType": "long",
+        "label": "allocs.pasId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "allocs.pasName",
+        "indexType": "keyword",
+        "label": "allocs.pasName",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "allocs.points",
+        "indexType": "double",
+        "label": "allocs.points",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "integer"
+      },
+      {
+        "id": "allocs.pointsTag",
+        "indexType": "keyword",
+        "label": "allocs.pointsTag",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "amount",
+        "indexType": "double",
+        "label": "amount",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "integer"
+      },
+      {
+        "id": "assignedTo",
+        "indexType": "text",
+        "label": "assignedTo",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrg",
+        "indexType": "long",
+        "label": "assignedToOrg",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgParent",
+        "indexType": "long",
+        "label": "assignedToOrgParent",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgParentId",
+        "indexType": "keyword",
+        "label": "assignedToOrgParentId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgParentTitle",
+        "indexType": "keyword",
+        "label": "assignedToOrgParentTitle",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgTitle",
+        "indexType": "keyword",
+        "label": "assignedToOrgTitle",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgTypeIds",
+        "indexType": "long",
+        "label": "assignedToOrgTypeIds",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "assignedToOrgs",
+        "indexType": "long",
+        "label": "assignedToOrgs",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "dataSeriesId",
+        "indexType": "long",
+        "label": "dataSeriesId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "dataSeriesName",
+        "indexType": "keyword",
+        "label": "dataSeriesName",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "dataSeriesUnits",
+        "indexType": "keyword",
+        "label": "dataSeriesUnits",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "dateEntered",
+        "indexType": "date",
+        "label": "dateEntered",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "date"
+      },
+      {
+        "id": "entityIds",
+        "indexType": "long",
+        "label": "entityIds",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "parentOrgs",
+        "indexType": "long",
+        "label": "parentOrgs",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "pasIds",
+        "indexType": "long",
+        "label": "pasIds",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "pasNames",
+        "indexType": "keyword",
+        "label": "pasNames",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "periodFrom",
+        "indexType": "date",
+        "label": "periodFrom",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "date"
+      },
+      {
+        "id": "periodTo",
+        "indexType": "date",
+        "label": "periodTo",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "date"
+      },
+      {
+        "id": "productCategories",
+        "indexType": "keyword",
+        "label": "productCategories",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "productSku",
+        "indexType": "keyword",
+        "label": "productSku",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "profileFirstName",
+        "indexType": "text",
+        "label": "profileFirstName",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "profileId",
+        "indexType": "long",
+        "label": "profileId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "profileName",
+        "indexType": "keyword",
+        "label": "profileName",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "profileSurname",
+        "indexType": "text",
+        "label": "profileSurname",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "recordId",
+        "indexType": "long",
+        "label": "recordId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "rewardsIssuedDate",
+        "indexType": "date",
+        "label": "rewardsIssuedDate",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "date"
+      },
+      {
+        "id": "salesTeamId",
+        "indexType": "long",
+        "label": "salesTeamId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "salesTeamOrgTypeIds",
+        "indexType": "long",
+        "label": "salesTeamOrgTypeIds",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "supplierId",
+        "indexType": "long",
+        "label": "supplierId",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "supplierParentIds",
+        "indexType": "long",
+        "label": "supplierParentIds",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      },
+      {
+        "id": "tags",
+        "indexType": "keyword",
+        "label": "tags",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "type": "string"
+      }
+    ],
+    "order": "ASC",
+    "orderBy": [
+      "profileName"
+    ],
+    "query": "{\"bool\":{}}",
+    "queryToRun": "{\"stored_fields\":[\"profileName\",\"amount\"],\"query\":{\"bool\":{}}, \"aggs\": {\"TERMS_profileName\" : {\"terms\" : {\"field\": \"profileName\", \"size\": 10}},\"SUM_amount\" : {\"sum\" : {\"field\": \"amount\"}}}, \"sort\": [{ \"profileName\" : {\"order\" : \"ASC\"}}],  \"size\":10000}",
+    "rules": "{\"condition\":\"AND\",\"rules\":[]}",
+    "size": 10000
+  }
+}

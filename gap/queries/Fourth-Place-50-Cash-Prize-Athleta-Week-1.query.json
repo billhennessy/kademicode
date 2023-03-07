@@ -1,0 +1,623 @@
+{
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "productorders"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"customerFirstName\",\"customerSurName\",\"customerMembershipOrgTitles\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"productName\":\"Fourth-Place-50-Cash-Prize-Athleta-Week-1\"}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"productName\":\"Fourth-Place-50-Cash-Prize-Athleta-Week-1\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"productName\",\"field\":\"productName\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"Fourth-Place-50-Cash-Prize-Athleta-Week-1\"}]}",
+    "filters": [
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "cartId",
+        "label": "cartId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "cartInternalId",
+        "label": "cartInternalId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "categories",
+        "label": "categories",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "currencyId",
+        "label": "currencyId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerFirstName",
+        "label": "customerFirstName",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerGroups",
+        "label": "customerGroups",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerId",
+        "label": "customerId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerMembershipOrgTitles",
+        "label": "customerMembershipOrgTitles",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerMemberships.group",
+        "label": "customerMemberships.group",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerMemberships.org",
+        "label": "customerMemberships.org",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerMemberships.orgTitle",
+        "label": "customerMemberships.orgTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerName",
+        "label": "customerName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerOrgs",
+        "label": "customerOrgs",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "customerSurName",
+        "label": "customerSurName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "id",
+        "label": "id",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "itemDescription",
+        "label": "itemDescription",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "itemHref",
+        "label": "itemHref",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "modifiedDate",
+        "label": "modifiedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderedDate",
+        "label": "orderedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderedForId",
+        "label": "orderedForId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderedForOrgId",
+        "label": "orderedForOrgId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderedForOrgTypes",
+        "label": "orderedForOrgTypes",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orderedForTitle",
+        "label": "orderedForTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "parentOrgs",
+        "label": "parentOrgs",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productCategories.name",
+        "label": "productCategories.name",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productCategories.title",
+        "label": "productCategories.title",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productId",
+        "label": "productId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productName",
+        "label": "productName",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "productTitle",
+        "label": "productTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "quantity",
+        "label": "quantity",
+        "type": "integer"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "relatedAppId",
+        "label": "relatedAppId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "relatedItemId",
+        "label": "relatedItemId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "storeId",
+        "label": "storeId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "storeName",
+        "label": "storeName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierId",
+        "label": "supplierId",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierOrgId",
+        "label": "supplierOrgId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierOrgs",
+        "label": "supplierOrgs",
+        "type": "string"
+      },
+      {
+        "indexType": "text",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "supplierTitle",
+        "label": "supplierTitle",
+        "type": "string"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "totalCost",
+        "label": "totalCost",
+        "type": "integer"
+      },
+      {
+        "indexType": "double",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "unitCost",
+        "label": "unitCost",
+        "type": "integer"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "website",
+        "label": "website",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      "customerFirstName",
+      "customerSurName",
+      "customerMembershipOrgTitles"
+    ],
+    "aggregations": []
+  }
+}

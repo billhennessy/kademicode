@@ -1,0 +1,49 @@
+{
+    "roles": [
+        "Administrator"
+    ],
+    "indexes": [
+        "rewardpoints"
+    ],
+    "queryBuilder": {
+        "aggregationsSource": [
+            {
+                "aggName": "SUM_numPoints",
+                "aggType": "SUM",
+                "aggField": "numPoints",
+                "aggSize": "0"
+            },
+            {
+                "aggName": "TERMS_issuedToOrgTitle",
+                "aggType": "TERMS",
+                "aggField": "issuedToOrgTitle",
+                "aggSize": "25"
+            }
+        ],
+        "queryToRun": "{\"stored_fields\":[\"issuedDate\",\"issuedForProfileEmail\",\"issuedForProfileFirstName\",\"issuedForProfileSurName\",\"issuedForProfileId\",\"issuedToOrgTitle\",\"numPoints\",\"pointsSource\",\"reason\",\"rewardName\"],\"query\":{\"bool\":{\"must\":[{\"range\":{\"issuedDate\":{\"gte\":\"$startDate\",\"lte\":\"$endDate\"}}}]}}, \"aggs\": {\"SUM_numPoints\" : {\"sum\" : {\"field\": \"numPoints\"}},\"TERMS_issuedToOrgTitle\" : {\"terms\" : {\"field\": \"issuedToOrgTitle\", \"size\": 25}}}, \"sort\": [{ \"issuedDate\" : {\"order\" : \"ASC\"}}],  \"size\":10000}",
+        "size": 10000,
+        "query": "{\"bool\":{\"must\":[{\"range\":{\"issuedDate\":{\"gte\":\"$startDate\",\"lte\":\"$endDate\"}}}]}}",
+        "orderBy": [
+            "issuedDate"
+        ],
+        "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"issuedDate\",\"field\":\"issuedDate\",\"type\":\"date\",\"input\":\"text\",\"operator\":\"between\",\"value\":[\"$startDate\",\"$endDate\"]}]}",
+        "filters": [],
+        "fields": [
+            "issuedDate",
+            "issuedForProfileEmail",
+            "issuedForProfileFirstName",
+            "issuedForProfileSurName",
+            "issuedForProfileId",
+            "issuedToOrgTitle",
+            "numPoints",
+            "pointsSource",
+            "reason",
+            "rewardName"
+        ],
+        "aggregations": [
+            "\"SUM_numPoints\" : {\"sum\" : {\"field\": \"numPoints\"}}",
+            "\"TERMS_issuedToOrgTitle\" : {\"terms\" : {\"field\": \"issuedToOrgTitle\", \"size\": 25}}"
+        ],
+        "order": "ASC"
+    }
+}

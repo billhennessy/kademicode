@@ -1,0 +1,48 @@
+/**
+ * Award point based on Product field values
+ */
+ function doProcessDSR(record, ruleParams){
+    log.info("doProcessDSR 1: ID={} productSku={} serialNumber={}", record.id, record.productSku, record.field2);
+    var points = 0;
+    var dsrPoints = record.findProductSku().product.field1;
+    log.info("doProcessDSR 2: Product={}", dsrPoints);
+   
+   return dsrPoints;
+}
+
+function isIncludedDSR(record, ruleParams, root){
+    log.info("isIncludedDSR: productSku={} serialNumber={}", record.productSku, record.field2);
+    var product = record.productSku;
+    // var thisProfile = services.userManager.findByName(record.salesBy.entityName);
+    // var mems = services.userManager.membershipList(thisProfile);
+    var p = root;
+    log.info("isIncludedDSR: profileName={}", p.formatName);
+    // log.info("Mems {}", formatter.toJson(mems));
+    
+    // log.info("Mems {}", mems.containsGroup("old-navy"));
+
+   //  return mems.containsGroup("old-navy");
+    
+    return true;
+
+    
+
+    return true;
+}
+
+/**
+ * Award point based on Product field values
+ */
+function doProcessManager(record, ruleParams){
+    log.info("doProcessManager 1: ID={} productSku={} serialNumber={}", record.id, record.productSku, record.field2);
+    var mgrPoints = 0;
+    mgrPoints = record.findProductSku().product.field2;
+    log.info("doProcessManager 2: Product={}", mgrPoints);
+   
+   return mgrPoints;
+}
+
+function isIncludedManager(record, ruleParams){
+    
+    return true;
+}

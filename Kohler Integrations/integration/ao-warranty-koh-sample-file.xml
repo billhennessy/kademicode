@@ -1,0 +1,27 @@
+<MultiStep>
+    <nextSteps>
+        <TransactionStep alwaysRollback="false" isolated="true">
+            <next class="MultiStep">
+                <nextSteps>
+                    <next class="CsvInput" skipIfBlankColumns="0" startRow="1">
+                        <next class="JsRowStep">
+                            <jsPath>/integration/aoWarrantyKohSampleFileImporter.js</jsPath>
+                            <prepareFn>prepare</prepareFn>
+                            <finishFn>finishImport</finishFn>
+                            <execFn>processRow</execFn>
+                        </next>
+                    </next>
+                </nextSteps>
+            </next>
+        </TransactionStep>
+        <TransactionStep alwaysRollback="false" isolated="true">
+            <next class="ResultEmail">
+                <recipients>
+                    <string>alfonso.olivares@maritz.com</string>
+                </recipients>
+                <subject>Report: SALES-IMPORT</subject>
+                <fromAddress>noreply@cwddealerrewards.com</fromAddress>
+            </next>
+        </TransactionStep>
+    </nextSteps>
+</MultiStep>

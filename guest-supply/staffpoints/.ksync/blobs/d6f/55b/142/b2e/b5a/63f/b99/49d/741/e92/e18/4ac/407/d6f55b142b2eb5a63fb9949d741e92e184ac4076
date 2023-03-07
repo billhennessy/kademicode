@@ -1,0 +1,74 @@
+controllerMappings
+        .adminController()
+        .path("/staffPointsApp/")
+        .enabled(true)
+        .defaultView(views.templateView("staffPoints-app/staffPointSettings.html"))
+        .addMethod("POST", "handleStaffPoints")
+        .build();
+        
+controllerMappings
+        .websiteController()
+        .path("/staffPoints/")
+        .enabled(true)
+        .defaultView(views.templateView("staffPoints-app/staffPointsComponent.html"))
+        .build();    
+        
+        
+
+/* Order Header Transform */
+var orderHeaderAmount = controllerMappings.newTableActionHandlerBuilder()
+    .id('orderHeaderAmount')
+    .title('Order Header Import Actions')
+    .description('Determine amount for order header records')
+    .transformRowFn('doTransformRow')
+    .processRowFn('doProcessRow');
+orderHeaderAmount.field("amount", "Amount", true);
+
+orderHeaderAmount.build();        
+
+/**
+ * 
+ * @param {+} row 
+ * @param {*} params 
+ * @param {*} rowContext 
+ * @param {*} importContext 
+ * @returns 
+ * Column mappings
+ * 0	Business Unit
+1	Invoice No
+2	Account No
+3	Sales ID
+4	Invoice Date
+5	 Sales 
+6	 Salesman GP$ 
+7	 Actual GP$ 
+8	Back Order
+9	Drop Shipment
+10	 Discount 
+11	 Freight 
+12	 Misc 
+13	 Rebate 
+14	 Restock 
+15	 Restock 
+16	Ship To
+17	Invoice Type
+18	Invoice Group
+ */
+
+function doTransformRow(row, params, rowContext, importContext){
+   // var orgIdPrefix = params.orgIdPrefix;
+   var fieldMappings = rowContext.fieldMappings;
+    var amount = row.field(5) - row.field(11);
+    row.set(5, formatter.toDecimal(amount,2));
+    
+    return row;
+}
+
+function doProcessRow(row, params, rowContext, importContext){
+    var fieldMappings = rowContext.fieldMappings;
+    if (fieldMappings && formatter.isNotEmpty(fieldMappings)) {
+        var typeMap = formatter.newArrayList();
+        typeMap.add(19); //The index of the org type in row data
+        fieldMappings.put('amount', typeMap);
+    }
+}

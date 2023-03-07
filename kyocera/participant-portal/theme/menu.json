@@ -1,0 +1,160 @@
+{
+    "version": 2,
+    "items": [
+        {
+            "id": "menuRoot",
+            "text": "Root Menu Item",
+            "href": "",
+            "ordering": 0,
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menuDashboard",
+            "text": "Dashboard",
+            "href": "/dashboard",
+            "ordering": 0,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "fa fa-dashboard",
+            "visible": ""
+        },
+        {
+            "id": "menuMyLearning",
+            "text": "My Learning",
+            "href": "/myLearning",
+            "ordering": 1,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "fa fa-graduation-cap",
+            "visible": ""
+        },
+        {
+            "id": "menuMyRewards",
+            "text": "My Rewards",
+            "href": "/rewards",
+            "ordering": 2,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "fa fa-gift",
+            "visible": ""
+        },
+        {
+            "id": "menuNotifications",
+            "text": "Notifications",
+            "href": "/inbox",
+            "ordering": 3,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "fa fa-inbox",
+            "visible": ""
+        },
+        {
+            "id": "menuTeam",
+            "text": "Team",
+            "href": "/team/",
+            "ordering": 4,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "",
+            "cssClass": "fa fa-sitemap",
+            "visible": "managers",
+            "orgTypeVisible": "",
+            "orgTypeHidden": ""
+        },
+        {
+            "id": "menuPayment",
+            "text": "Payment",
+            "href": "",
+            "ordering": 5,
+            "parentId": "menuRoot",
+            "custom": false,
+            "hidden": "true",
+            "cssClass": "fa fa-dollar",
+            "visible": ""
+        },
+        {
+            "id": "menuManageProposals",
+            "text": "Proposals",
+            "href": "/proposals/",
+            "ordering": 0,
+            "parentId": "menuPayment",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "fa fa-bookmark",
+            "visible": ""
+        },
+        {
+            "id": "menuInvoices",
+            "text": "Invoices",
+            "href": "/payment-manager/invoice-list",
+            "ordering": 1,
+            "parentId": "menuPayment",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menuQuotes",
+            "text": "Quotes",
+            "href": "/payment-manager/quote-list",
+            "ordering": 2,
+            "parentId": "menuPayment",
+            "custom": false,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menu-custom-1942",
+            "text": "FAQ &amp; Help",
+            "href": "/help/",
+            "ordering": 6,
+            "parentId": "menuRoot",
+            "custom": true,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menu-custom-3749",
+            "text": "Terms",
+            "href": "/terms/",
+            "ordering": 7,
+            "parentId": "menuRoot",
+            "custom": true,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menu-custom-3003",
+            "text": "Points to Card",
+            "href": "/demo-store/",
+            "ordering": 8,
+            "parentId": "menuRoot",
+            "custom": true,
+            "hidden": "true",
+            "cssClass": "",
+            "visible": ""
+        },
+        {
+            "id": "menu-custom-9646",
+            "text": "Shop",
+            "href": "",
+            "ordering": 9,
+            "parentId": "menuRoot",
+            "custom": true,
+            "hidden": "false",
+            "cssClass": "",
+            "visible": ""
+        }
+    ]
+}

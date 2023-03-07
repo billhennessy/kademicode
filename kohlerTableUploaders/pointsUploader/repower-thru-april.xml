@@ -1,0 +1,55 @@
+<fieldMapping>
+  <name>repower-thru-april</name>
+  <title>Repower thru April</title>
+  <mappings class="linked-hash-map">
+    <entry>
+      <string>issueDate</string>
+      <list>
+        <int>4</int>
+      </list>
+    </entry>
+    <entry>
+      <string>points_repower</string>
+      <list>
+        <int>2</int>
+      </list>
+    </entry>
+    <entry>
+      <string>reason</string>
+      <list>
+        <int>3</int>
+      </list>
+    </entry>
+    <entry>
+      <string>awardedTo</string>
+      <list>
+        <int>0</int>
+      </list>
+    </entry>
+    <entry>
+      <string></string>
+      <list>
+        <int>1</int>
+      </list>
+    </entry>
+  </mappings>
+  <options>
+    <entry>
+      <string>defaultReward</string>
+      <string>new-points</string>
+    </entry>
+    <entry>
+      <string>startRow</string>
+      <string>1</string>
+    </entry>
+    <entry>
+      <string>dateFormat</string>
+      <string>MM/dd/yyyy</string>
+    </entry>
+    <entry>
+      <string>taskSize</string>
+      <string>500</string>
+    </entry>
+  </options>
+  <actions/>
+</fieldMapping>

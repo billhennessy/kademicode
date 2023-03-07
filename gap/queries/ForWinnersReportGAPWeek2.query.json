@@ -1,0 +1,47 @@
+{
+  "query": {
+    "stored_fields": [
+      "customerFirstName",
+      "customerMemberships.org",
+      "customerMembershipOrgTitles",
+      "orderedForTitle",
+      "productName",
+      "productTitle",
+      "customerName",
+      "customerSurName",
+      "customerId"
+    ],
+    "query": {
+      "bool": {}
+    },
+    "size": 10000
+  },
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "productorders"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"customerFirstName\",\"customerMemberships.org\",\"customerMembershipOrgTitles\",\"orderedForTitle\",\"productName\",\"productTitle\",\"customerName\",\"customerSurName\",\"customerId\"],\"query\":{\"bool\":{}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[]}",
+    "filters": [],
+    "fields": [
+      "customerFirstName",
+      "customerMemberships.org",
+      "customerMembershipOrgTitles",
+      "orderedForTitle",
+      "productName",
+      "productTitle",
+      "customerName",
+      "customerSurName",
+      "customerId"
+    ],
+    "aggregations": [],
+    "order": ""
+  }
+}

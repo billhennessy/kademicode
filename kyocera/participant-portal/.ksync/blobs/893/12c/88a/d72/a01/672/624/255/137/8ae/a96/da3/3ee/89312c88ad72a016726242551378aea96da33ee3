@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>eCommerce Store</title>
+	</head>
+	<body>
+		<section>
+			<div class="container-bg background-for" data-shadow-color="#ffffff" style="margin-top: 100px;">
+				<div class="container-layout container">
+					<div class="container-content-wrapper">
+						<div class="row">
+							<div class="col-sm-3 ui-resizable" data-type="container-content">
+								<section data-type="component-ecomStoreSidebar">
+									<div data-dynamic-href="_components/ecomStoreSidebar" id="default-ecomStoreSidebar"></div>
+								</section>
+							</div>
+							<div class="col-sm-9 ui-resizable" data-type="container-content">
+								<section data-type="component-ecomSearchInput">
+									<div data-dynamic-href="_components/ecomSearchInput" id="default-ecomSearchInput"></div>
+								</section>
+								<section data-layout="grid" data-items-per-row="2" data-number-of-products="12" data-category="" data-currency-symbol="$" data-type="component-storeProductList" data-sort-by="position" data-page-size="12" data-number-product-shown="" data-product-content="none">
+									<div data-dynamic-href="_components/storeProductList" id="default-storeProductList"></div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

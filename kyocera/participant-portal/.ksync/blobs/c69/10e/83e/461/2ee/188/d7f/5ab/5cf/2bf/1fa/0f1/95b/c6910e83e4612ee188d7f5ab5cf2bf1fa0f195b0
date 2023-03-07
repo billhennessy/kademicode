@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Product Certifications</title>
+		<script type="data/parameter" title="notes" ></script>
+		<script type="data/parameter" title="itemType" ></script>
+		<script type="data/parameter" title="category" ></script>
+		<script type="data/parameter" title="tags" ></script>
+	</head>
+	<body>
+		<section>
+			<div class="container-bg background-for">
+				<div class="container-layout container-fluid">
+					<div class="container-content-wrapper">
+						<div class="row">
+							<div class="col-sm-12 ui-resizable" data-type="container-content">
+								<section data-type="component-text">
+									<div class="keditor-component-text-content">
+										<div class="keditor-component-text-content-inner clearfix">
+											<p>Modules required to claim a product.</p>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

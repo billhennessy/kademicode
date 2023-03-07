@@ -1,0 +1,123 @@
+<controllers>
+  <source>points.js</source>
+  <source>eligibleProducts.js</source>
+  <metrics>
+    <metric id="sum-of-shipped" decimals="0">
+      <title>Sum of Shipped</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>serial-numbers</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="percent-claimed" decimals="0">
+      <title>Percent Claimed</title>
+      <metricTypeId>perc-growth</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>currentValMetricId</string>
+          <string>sum-of-claimed</string>
+        </entry>
+        <entry>
+          <string>baselineMetricId</string>
+          <string>sum-of-shipped</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="targets" decimals="0">
+      <title>Targets</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>dsr-targets</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="actual-claims" decimals="0">
+      <title>Actual claims</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>sales-claims</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="dsr-progress" decimals="0">
+      <title>DSR Progress</title>
+      <metricTypeId>perc-growth</metricTypeId>
+      <entitySelection>currentProfile</entitySelection>
+      <params>
+        <entry>
+          <string>currentValMetricId</string>
+          <string>actual-claims</string>
+        </entry>
+        <entry>
+          <string>baselineMetricId</string>
+          <string>targets</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="active-user-count" decimals="0">
+      <title>Active User Count</title>
+      <metricTypeId>activeUsers</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>group</string>
+          <string>dsr</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="sum-of-claimed" decimals="0">
+      <title>Sum of Claimed</title>
+      <metricTypeId>sum-sales-data</metricTypeId>
+      <entitySelection>currentOrg</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>sales-claims</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+  </metrics>
+</controllers>

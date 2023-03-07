@@ -1,0 +1,235 @@
+{
+  "roles": [
+    "Administrator"
+  ],
+  "indexes": [
+    "recognition"
+  ],
+  "queryBuilder": {
+    "aggregationsSource": [],
+    "queryToRun": "{\"stored_fields\":[\"topicName\",\"awardedToName\",\"recognitionName\"],\"query\":{\"bool\":{\"must\":[{\"term\":{\"_type\":\"recognitionAward\"}}]}},  \"size\":10000}",
+    "size": 10000,
+    "query": "{\"bool\":{\"must\":[{\"term\":{\"_type\":\"recognitionAward\"}}]}}",
+    "orderBy": [],
+    "rules": "{\"condition\":\"AND\",\"rules\":[{\"id\":\"_type\",\"field\":\"_type\",\"type\":\"string\",\"input\":\"select\",\"operator\":\"equal\",\"value\":\"recognitionAward\"}]}",
+    "filters": [
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "awardedToId",
+        "label": "awardedToId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "awardedToName",
+        "label": "awardedToName",
+        "type": "string"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "createdDate",
+        "label": "createdDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "deletedDate",
+        "label": "deletedDate",
+        "type": "date"
+      },
+      {
+        "indexType": "date",
+        "operators": [
+          "equal",
+          "not_equal",
+          "less",
+          "less_or_equal",
+          "greater",
+          "greater_or_equal",
+          "between",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "expiryDate",
+        "label": "expiryDate",
+        "type": "date"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "groupIds",
+        "label": "groupIds",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "orgTypeIds",
+        "label": "orgTypeIds",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "periodId",
+        "label": "periodId",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "periodPromotionId",
+        "label": "periodPromotionId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "periodPromotionName",
+        "label": "periodPromotionName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recognitionId",
+        "label": "recognitionId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "recognitionName",
+        "label": "recognitionName",
+        "type": "string"
+      },
+      {
+        "indexType": "long",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "topicId",
+        "label": "topicId",
+        "type": "string"
+      },
+      {
+        "indexType": "keyword",
+        "operators": [
+          "equal",
+          "not_equal",
+          "in",
+          "not_in",
+          "is_null",
+          "is_not_null"
+        ],
+        "id": "topicName",
+        "label": "topicName",
+        "type": "string"
+      }
+    ],
+    "fields": [
+      "topicName",
+      "awardedToName",
+      "recognitionName"
+    ],
+    "aggregations": []
+  }
+}

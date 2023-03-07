@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<title>Overview</title>
+		<link rel="template" href="learner/modulePage" />
+		<script type="data/parameter" title="order" >NaN</script>
+	</head>
+	<body>
+		<div class="container-bg background-for">
+			<div class="container-layout">
+				<div class="container-content-wrapper">
+					<div class="row">
+						<div class="col-sm-12 ui-resizable" data-type="container-content">
+							<div data-photo-valign="" data-photo-linkable="false" data-photo-align="left" data-photo-responsive="true" data-photo-style="" data-photo-src="/assets/02c07ae3-e5ed-4cd4-8a84-9cb9401517fa" data-photo-height="1416" data-photo-alt="" data-photo-width="2092" data-photo-link="" data-photo-link-target="" data-type="component-photo">
+								<div data-dynamic-href="_components/photo" id="keditor-ui-16616103592801829363408"></div>
+							</div>
+							<div data-photo-valign="" data-photo-linkable="false" data-photo-align="left" data-photo-responsive="true" data-photo-style="" data-photo-src="/_hashes/files/69443782e3bd6b19617f53dc564fe336fb89c78f" data-photo-height="1114" data-photo-alt="" data-photo-width="2067" data-photo-link="" data-photo-link-target="" data-type="component-photo">
+								<div data-dynamic-href="_components/photo" id="keditor-ui-16616104154009291438455"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
