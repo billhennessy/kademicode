@@ -1,0 +1,1 @@
+{"roles":["Administrator"],"indexes":["rewardpoints"],"query":{"stored_fields":["rewardName","issuedToProfileFirstName","issuedToProfileSurName","issuedToOrgTitle","numPoints","reason","pointsTagTitle","issuedDate","completelyUsed","expiryDate"],"query":{"bool":{"must":[{"type":{"value":"points"}}]}}}}

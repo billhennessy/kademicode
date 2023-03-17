@@ -1,0 +1,68 @@
+<controllers>
+  <source>points.js</source>
+  <metrics>
+    <metric id="total-sales" icon="empty" decimals="0">
+      <title>Total Sales</title>
+      <metricTypeId>sum-sales-data-v2</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>series</string>
+          <string>essentials-sales</string>
+        </entry>
+        <entry>
+          <string>categories</string>
+          <string></string>
+        </entry>
+        <entry>
+          <string>aggregate</string>
+          <string>true</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="total-registrations" icon="empty" decimals="0">
+      <title>Total Registrations</title>
+      <metricTypeId>signups</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>group</string>
+          <string>dealer-sales-reps</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="points-earned" icon="empty" decimals="0">
+      <title>Points Earned</title>
+      <metricTypeId>points-earned</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>pointsBucket</string>
+          <string>program-points</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="point-liability" icon="empty" decimals="0">
+      <title>Point Liability</title>
+      <metricTypeId>point-liability-metric</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>dollarMultiplier</string>
+          <string>1</string>
+        </entry>
+      </params>
+    </metric>
+    <metric id="confirmed-count" icon="empty" decimals="0">
+      <title>Confirmed Count</title>
+      <metricTypeId>group-members-metric</metricTypeId>
+      <entitySelection>account</entitySelection>
+      <params>
+        <entry>
+          <string>groupName</string>
+          <string>confirmed</string>
+        </entry>
+      </params>
+    </metric>
+  </metrics>
+</controllers>

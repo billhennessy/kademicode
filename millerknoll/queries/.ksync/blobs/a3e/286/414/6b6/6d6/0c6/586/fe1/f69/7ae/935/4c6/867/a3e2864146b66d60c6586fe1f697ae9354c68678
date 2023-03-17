@@ -1,0 +1,9 @@
+<controllers>
+    <source>/APP-INF/app.js</source>
+    <source>/APP-INF/adminKprManager.js</source>
+    <source>/APP-INF/websiteKprManager.js</source>
+    
+    <menu parentId="menuRoot" id="menuManageMillerKnollApp" text="MillerKnoll App" css="fa fa-coffee" ordering="45"/>
+    <menu parentId="menuManageMillerKnollApp" id="menuKprs" text="KPRs" path="/kprs/" ordering="45"/>
+</controllers>
+            
